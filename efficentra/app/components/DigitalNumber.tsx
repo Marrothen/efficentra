@@ -554,14 +554,6 @@ const DigitalNumber: React.FC<DigitalNumberProps> = ({ value, size = 'medium' })
         [false, true, false],
         [true, false, false],
         [true, true, true],
-      ],      '?': [
-        [false, true, true, true, false],
-        [true, false, false, false, true],
-        [false, false, false, false, true],
-        [false, false, true, true, false],
-        [false, false, true, false, false],
-        [false, false, false, false, false],
-        [false, false, true, false, false],
       ],
     };
 
