@@ -106,7 +106,7 @@ export default function Home() {
         <div className="container mx-auto px-4 pt-16 pb-8">
           <div className="flex items-center justify-center mb-12">
             <div className="h-1 w-16 bg-[#77a655] mr-6"></div>
-            <h2 className="text-4xl md:text-6xl font-bold text-[#33596c] tracking-tight">COSA OFFRIAMO</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#33596c] tracking-tight">COSA OFFRIAMO</h2>
             <div className="h-1 w-16 bg-[#77a655] ml-6"></div>
           </div>
         </div>
@@ -279,16 +279,16 @@ export default function Home() {
         <div className="container mx-auto px-4">
           {/* Header con stile sofisticato e moderno */}
           <div className="flex flex-col items-center justify-center mb-16 relative">
-            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-[#77a655] opacity-20 rounded-full blur-xl"></div>
+            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-24 h-24  opacity-20 rounded-full blur-xl"></div>
             <div className="relative z-10 mb-4">
-              <h2 className="text-5xl md:text-6xl font-extrabold tracking-wider uppercase text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-[#b7c1e4] pb-2 relative">
+              <h2 className="text-4xl md:text-4xl font-extrabold tracking-wider uppercase text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-[#b7c1e4] pb-2 relative">
                 I VANTAGGI
                 <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#77a655] to-transparent"></span>
               </h2>
             </div>
             <div className="relative z-10 flex items-center">
               <div className="h-[2px] w-8 md:w-16 bg-[#77a655] mr-4"></div>
-              <h2 className="text-6xl md:text-7xl font-black tracking-wider uppercase text-center">
+              <h2 className="text-3xl md:text-3xl font-black tracking-wider uppercase text-center">
                 <span className="relative">
                   <span className="bg-clip-text  ">PER IL CLIENTE</span>
                   <span className="absolute -inset-1 blur-sm  opacity-30 rounded-lg -z-10"></span>
