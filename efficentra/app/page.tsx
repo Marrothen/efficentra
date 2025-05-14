@@ -78,11 +78,13 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center relative">
-          <div className="max-w-xl">
+          <div className="max-w-xl mb-6 md:mb-0">
             <h3 className="text-2xl md:text-4xl font-semibold text-[#21525f] mb-4">Siamo un&apos;azienda specializzata in soluzioni per l&apos;efficientamento energetico</h3>
             <div className="h-1 w-16 bg-[#77a655] my-6"></div>
           </div>
-          <div className="absolute left-0 bottom-16 md:bottom-20 w-full max-w-[400px]">
+          
+          {/* Indirizzo - per mobile sotto l'azienda, per desktop posizione assoluta */}
+          <div className={`md:absolute left-0 md:bottom-20 w-full lg:max-w-[400px] md:w-full mt-6 md:mt-0`}>
             <div className="bg-[#21525f] text-white p-6 md:p-8 flex items-center ml-0 md:-ml-24">
               <div className="mr-5">
                 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
