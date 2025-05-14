@@ -269,74 +269,241 @@ export default function Home() {
         </div>
       </div>
       
-      {/* Countdown Section - Più compatta 
-      <div className="bg-[#21525f] text-white py-6 md:py-10 flex flex-col justify-center items-center px-4 md:px-8">
-        <div className="w-full max-w-5xl mx-auto flex flex-col justify-center items-center">
-          <div className="text-center">
-            <div className="w-full mb-6 md:mb-8">
-              <div className="flex flex-col md:flex-row items-center justify-center mb-4 md:mb-6">
-                <div className="mb-3 md:mb-0 md:mr-6 flex items-center">
-                  <DigitalNumber value="Mancano" size="small" />
+      {/* I Vantaggi per il Cliente */}
+      <section className="bg-[#21525f] text-white py-16 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-[#77a655] opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#b7c1e4] opacity-10 rounded-full translate-x-1/3 translate-y-1/3"></div>
+        
+        <div className="container mx-auto px-4">
+          {/* Header con effetto sottolineatura animata */}
+          <div className="flex flex-col items-center justify-center mb-12">
+            <h2 className="text-5xl md:text-6xl font-bold tracking-wider uppercase text-center mb-4 relative">
+              <span className="relative inline-block">
+                I VANTAGGI PER IL 
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#77a655] transform origin-left"></span>
+              </span>
+            </h2>
+            <h2 className="text-6xl md:text-7xl font-bold tracking-wider uppercase text-center">
+              <span className="relative text-white">CLIENTE</span>
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 relative z-10">
+            {/* Colonna di sinistra con vantaggi */}
+            <div className="p-6 md:p-10 flex flex-col justify-between">
+              <div className="bg-[#21525f]/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg transform transition-all duration-500 hover:shadow-2xl hover:translate-y-[-5px] border-l-4 border-[#77a655]">
+                <div className="mb-4">
+                  <svg className="w-12 h-12 text-[#77a655]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
                 </div>
-                <div className="flex items-center gap-4 md:gap-8">
-                  <div className="flex flex-col items-center">
-                    <DigitalNumber value={timeLeft.anni.toString().padStart(2, '0')} size="small" />
-                    <div className="uppercase text-xs md:text-sm mt-2 tracking-wide font-bold">ANNI</div>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <DigitalNumber value={timeLeft.mesi.toString().padStart(2, '0')} size="small" />
-                    <div className="uppercase text-xs md:text-sm mt-2 tracking-wide font-bold">MESI</div>
-                  </div>
+                <h3 className="text-2xl font-semibold mb-2">Risparmio concreto</h3>
+                <div className="w-16 h-1 bg-[#77a655] mb-4"></div>
+                <p className="text-xl leading-relaxed">
+                  sulle bollette<br />
+                  e maggiore comfort<br />
+                  abitativo
+                </p>
+              </div>
+              
+              <div className="bg-[#21525f]/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg mt-8 transform transition-all duration-500 hover:shadow-2xl hover:translate-y-[-5px] border-l-4 border-[#77a655]">
+                <div className="mb-4">
+                  <svg className="w-12 h-12 text-[#77a655]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-semibold mb-2">Aumento del valore</h3>
+                <div className="w-16 h-1 bg-[#77a655] mb-4"></div>
+                <p className="text-xl leading-relaxed">
+                  dell&apos;immobile
+                </p>
+              </div>
+            </div>
+            
+            {/* Colonna centrale con immagini interattive */}
+            <div className="bg-gradient-to-b from-[#f0f2ed] to-[#e5ebe3] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="p-3 hover:p-1 transition-all duration-300">
+                <div className="overflow-hidden rounded-xl">
+                  <Image 
+                    src="/H-57_CEOGROUP_Efficentra_-011.jpg" 
+                    alt="Dashboard energetica su tablet" 
+                    width={600} 
+                    height={400}
+                    className="w-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              </div>
+              <div className="p-3 hover:p-1 transition-all duration-300">
+                <div className="overflow-hidden rounded-xl">
+                  <Image 
+                    src="/H-57_CEOGROUP_Efficentra_-010.jpg" 
+                    alt="Manopola classe energetica" 
+                    width={600} 
+                    height={400}
+                    className="w-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              </div>
+              <div className="p-3 hover:p-1 transition-all duration-300">
+                <div className="overflow-hidden rounded-xl">
+                  <Image 
+                    src="/H-57_CEOGROUP_Efficentra_-009.jpg" 
+                    alt="Consulenza efficientamento energetico" 
+                    width={600} 
+                    height={400}
+                    className="w-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
                 </div>
               </div>
             </div>
-
-            <div className="border-t border-b border-white/40 py-4 md:py-8 w-full mb-6 md:mb-10">
-              <div className="flex flex-wrap items-center justify-center max-w-5xl mx-auto">
-                <div className="flex flex-wrap items-center justify-center gap-1 md:gap-3">
-                  <div className="flex flex-col items-center">
-                    <DigitalNumber value={timeLeft.giorni.toString().padStart(2, '0')} size="small" />
-                    <div className="uppercase text-[10px] md:text-xs mt-1 md:mt-2 tracking-wide font-bold">GIORNI</div>
-                  </div>
-                  
-                  <div className="flex items-center self-start mt-0 md:mt-1">
-                    <DigitalNumber value=":" size="small" />
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    <DigitalNumber value={timeLeft.ore.toString().padStart(2, '0')} size="small" />
-                    <div className="uppercase text-[10px] md:text-xs mt-1 md:mt-2 tracking-wide font-bold">ORE</div>
-                  </div>
-                  
-                  <div className="flex items-center self-start mt-0 md:mt-1">
-                    <DigitalNumber value=":" size="small" />
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    <DigitalNumber value={timeLeft.minuti.toString().padStart(2, '0')} size="small" />
-                    <div className="uppercase text-[10px] md:text-xs mt-1 md:mt-2 tracking-wide font-bold">MINUTI</div>
-                  </div>
-                  
-                  <div className="flex items-center self-start mt-0 md:mt-1">
-                    <DigitalNumber value=":" size="small" />
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    <DigitalNumber value={timeLeft.secondi.toString().padStart(2, '0')} size="small" />
-                    <div className="uppercase text-[10px] md:text-xs mt-1 md:mt-2 tracking-wide font-bold">SECONDI</div>
-                  </div>
-                </div>
+            
+            {/* Colonna di destra con altri vantaggi */}
+            <div className="p-6 md:p-10 flex flex-col justify-between">
+              <div className="relative">
+                {/* Elemento decorativo moderno */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-[#77a655] rounded-full opacity-80 transform translate-x-1/3 -translate-y-1/3"></div>
               </div>
-            </div>
-
-            <div className="mt-6 md:mt-8 flex justify-center w-full">
-              <div className="flex justify-center">
-                <DigitalNumber value="Sei ancora in tempo?" size="small" />
+              
+              <div className="bg-[#21525f]/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg transform transition-all duration-500 hover:shadow-2xl hover:translate-y-[-5px] border-l-4 border-[#77a655] mt-16">
+                <div className="mb-4">
+                  <svg className="w-12 h-12 text-[#77a655]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-semibold mb-2">Accesso facilitato</h3>
+                <div className="w-16 h-1 bg-[#77a655] mb-4"></div>
+                <p className="text-xl leading-relaxed">
+                  a <span className="">bonus e finanziamenti</span>
+                </p>
+              </div>
+              
+              <div className="relative my-8">
+                {/* Elemento decorativo moderno */}
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#b7c1e4] rounded-full opacity-60 transform -translate-x-1/4 translate-y-1/4"></div>
+              </div>
+              
+              <div className="bg-[#21525f]/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg transform transition-all duration-500 hover:shadow-2xl hover:translate-y-[-5px] border-l-4 border-[#77a655] mt-4">
+                <div className="mb-4">
+                  <svg className="w-12 h-12 text-[#77a655]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-semibold mb-2">Assistenza <span className="font-normal">tecnica e</span></h3>
+                <div className="w-16 h-1 bg-[#77a655] mb-4"></div>
+                <p className="text-xl leading-relaxed">
+                  amministrativa continua
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </div>*/}
+      </section>
+      
+      {/* Sezione Contattaci - Form */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Header della sezione */}
+            <div className="text-center mb-10">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#21525f] uppercase tracking-wide mb-4">Richiedi Informazioni</h2>
+              <div className="w-24 h-1 bg-[#77a655] mx-auto mb-6"></div>
+              <p className="text-lg text-gray-600">Compila il modulo sottostante per richiedere un preventivo o maggiori informazioni sui nostri servizi</p>
+            </div>
+            
+            {/* Form di contatto */}
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label htmlFor="nome" className="block text-sm font-medium text-gray-700">Nome *</label>
+                <input 
+                  type="text" 
+                  id="nome" 
+                  name="nome" 
+                  required
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#77a655] focus:border-[#77a655]"
+                  placeholder="Inserisci il tuo nome"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <label htmlFor="cognome" className="block text-sm font-medium text-gray-700">Cognome *</label>
+                <input 
+                  type="text" 
+                  id="cognome" 
+                  name="cognome" 
+                  required
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#77a655] focus:border-[#77a655]"
+                  placeholder="Inserisci il tuo cognome"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email *</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#77a655] focus:border-[#77a655]"
+                  placeholder="La tua email"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <label htmlFor="telefono" className="block text-sm font-medium text-gray-700">Telefono</label>
+                <input 
+                  type="tel" 
+                  id="telefono" 
+                  name="telefono"
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#77a655] focus:border-[#77a655]"
+                  placeholder="Facoltativo"
+                />
+                <p className="text-xs text-gray-500 mt-1">Campo non obbligatorio</p>
+              </div>
+              
+              <div className="space-y-2 md:col-span-2">
+                <label htmlFor="note" className="block text-sm font-medium text-gray-700">Note / Richieste</label>
+                <textarea 
+                  id="note" 
+                  name="note" 
+                  rows={4}
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#77a655] focus:border-[#77a655]"
+                  placeholder="Inserisci qui eventuali richieste specifiche (facoltativo)"
+                ></textarea>
+                <p className="text-xs text-gray-500 mt-1">Campo non obbligatorio</p>
+              </div>
+              
+              <div className="md:col-span-2 mt-4">
+                <div className="flex items-start mb-4">
+                  <div className="flex items-center h-5">
+                    <input
+                      id="privacy"
+                      name="privacy"
+                      type="checkbox"
+                      required
+                      className="h-4 w-4 text-[#77a655] border-gray-300 rounded focus:ring-[#77a655]"
+                    />
+                  </div>
+                  <div className="ml-3 text-sm">
+                    <label htmlFor="privacy" className="font-medium text-gray-700">Accetto la Privacy Policy *</label>
+                    <p className="text-gray-500">Acconsento al trattamento dei dati personali secondo la normativa vigente</p>
+                  </div>
+                </div>
+                
+                <button
+                  type="submit"
+                  className="w-full md:w-auto px-8 py-4 bg-[#77a655] text-white font-medium rounded-md shadow hover:bg-[#5d8442] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#77a655] transition-colors duration-300"
+                >
+                  Invia Richiesta
+                </button>
+                
+                <p className="mt-4 text-sm text-gray-500">* Campi obbligatori</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+      {/* Countdown Section - Più compatta */}
     </main>
   );
 }
