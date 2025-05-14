@@ -277,17 +277,25 @@ export default function Home() {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#b7c1e4] opacity-10 rounded-full translate-x-1/3 translate-y-1/3"></div>
         
         <div className="container mx-auto px-4">
-          {/* Header con effetto sottolineatura animata */}
-          <div className="flex flex-col items-center justify-center mb-12">
-            <h2 className="text-5xl md:text-6xl font-bold tracking-wider uppercase text-center mb-4 relative">
-              <span className="relative inline-block">
-                I VANTAGGI PER IL 
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#77a655] transform origin-left"></span>
-              </span>
-            </h2>
-            <h2 className="text-6xl md:text-7xl font-bold tracking-wider uppercase text-center">
-              <span className="relative text-white">CLIENTE</span>
-            </h2>
+          {/* Header con stile sofisticato e moderno */}
+          <div className="flex flex-col items-center justify-center mb-16 relative">
+            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-[#77a655] opacity-20 rounded-full blur-xl"></div>
+            <div className="relative z-10 mb-4">
+              <h2 className="text-5xl md:text-6xl font-extrabold tracking-wider uppercase text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-[#b7c1e4] pb-2 relative">
+                I VANTAGGI
+                <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#77a655] to-transparent"></span>
+              </h2>
+            </div>
+            <div className="relative z-10 flex items-center">
+              <div className="h-[2px] w-8 md:w-16 bg-[#77a655] mr-4"></div>
+              <h2 className="text-6xl md:text-7xl font-black tracking-wider uppercase text-center">
+                <span className="relative">
+                  <span className="bg-clip-text  ">PER IL CLIENTE</span>
+                  <span className="absolute -inset-1 blur-sm  opacity-30 rounded-lg -z-10"></span>
+                </span>
+              </h2>
+              <div className="h-[2px] w-8 md:w-16 bg-[#77a655] ml-4"></div>
+            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 relative z-10">
