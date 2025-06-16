@@ -122,38 +122,33 @@ export default function Home() {
         </div>
       </div>
       
-      {/* Chi Siamo Section */}
-      <div className="bg-[#f5f7f2] flex flex-col md:flex-row relative shadow-md">
-        <div className="w-full md:w-1/2 relative">
-          <Image 
-            src="/H-57_CEOGROUP_Efficentra_-000.jpg" 
-            alt="Efficentra Moss Wall" 
-            width={1000} 
-            height={800}
+      {/* Video Section */}
+      <div className="relative">
+        {/* Video Container */}
+        <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+          <video 
             className="w-full h-full object-cover"
-            priority
-          />
-          <div className="absolute top-0 left-0 bg-[#f5f7f275] bg-opacity-70 p-5 md:p-8 m-5 md:m-8">
-            <h2 className="text-3xl md:text-5xl font-bold text-[#21525f]">Chi siamo</h2>
-          </div>
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/Efficentra_video.mp4" type="video/mp4" />
+            Il tuo browser non supporta i video HTML5.
+          </video>
         </div>
-        <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center relative">
-          <div className="max-w-xl mb-6 md:mb-0">
-            <h3 className="text-2xl md:text-4xl font-semibold text-[#21525f] mb-4">Siamo un&apos;azienda specializzata in soluzioni per l&apos;efficientamento energetico</h3>
-            <div className="h-1 w-16 bg-[#77a655] my-6"></div>
-          </div>
-          
-          {/* Indirizzo - per mobile sotto l'azienda, per desktop posizione assoluta */}
-          <div className={`md:absolute left-0 md:bottom-20 w-full lg:max-w-[400px] md:w-full mt-6 md:mt-0`}>
-            <div className="bg-[#21525f] text-white p-6 md:p-8 flex items-center ml-0 md:-ml-24">
-              <div className="mr-5">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        {/* Address Section - Attached to video */}
+        <div className="bg-[#21525f] text-white">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex items-center justify-center">
+              <div className="mr-4">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="white"/>
                 </svg>
               </div>
-              <div>
-                <p className="font-bold text-lg md:text-xl">CORSO GENOVA 17, MILANO</p>
-                <p className="font-bold text-lg md:text-xl">ITALIA</p>
+              <div className="text-center">
+                <p className="font-bold text-lg md:text-xl">Corso Genova 5, Milano | Italia</p>
               </div>
             </div>
           </div>
