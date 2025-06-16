@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 
 // Commentato temporaneamente in quanto non utilizzato
 /*
@@ -32,6 +33,8 @@ const calculateTimeLeft = () => {
 */
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   // Rimuoviamo il timer del countdown che non viene utilizzato attualmente
   // ma lo teniamo pronto per quando servirà
   /*
@@ -48,16 +51,73 @@ export default function Home() {
 
   return (
     <main className="flex flex-col">
-      {/* Hero Section */}
-      <div className="bg-[#77a655] text-white flex flex-col justify-center items-center px-4 py-8 md:px-8 md:py-12 relative shadow-xl z-10">
+      {/* Hero Section with Navigation */}
+      <div className="bg-[#77a655] text-white flex flex-col justify-center items-center px-4 py-8  relative shadow-xl z-10">
         <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-transparent to-black/5 pointer-events-none"></div>
+        
+        {/* Hamburger Menu Button */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="absolute top-4 right-4 md:top-1/2 md:right-6 md:-translate-y-1/2 z-50 bg-white p-2 md:p-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          aria-label="Menu"
+        >
+          <div className="w-5 h-5 md:w-6 md:h-6 flex flex-col justify-center items-center space-y-1">
+            <span className={`block w-4 md:w-6 h-0.5 bg-[#21525f] transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+            <span className={`block w-4 md:w-6 h-0.5 bg-[#21525f] transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`block w-4 md:w-6 h-0.5 bg-[#21525f] transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+          </div>
+        </button>
+
+        {/* Mobile Navigation Menu */}
+        <div className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 z-40 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="p-8 pt-20">
+            <nav className="space-y-6">
+              <div className="mb-8">
+                <a href="#chi-siamo" className="block text-[#21525f] hover:text-[#77a655] transition-colors duration-300 py-3 text-lg font-semibold border-b border-gray-200">
+                  Chi siamo
+                </a>
+              </div>
+              
+              <div className="mb-8">
+                <h3 className="text-[#21525f] text-lg font-semibold mb-4 pb-2 border-b border-gray-200">Servizi</h3>
+                <div className="space-y-2 pl-4">
+                  <a href="#caldaie" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-2">
+                    Caldaie
+                  </a>
+                  <a href="#pompe-calore" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-2">
+                    Pompe di calore
+                  </a>
+                  <a href="#serramenti" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-2">
+                    Serramenti
+                  </a>
+                  <a href="#fotovoltaico" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-2">
+                    Fotovoltaico
+                  </a>
+                  <a href="#climatizzatori" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-2">
+                    Climatizzatori
+                  </a>
+                  <a href="#coibentazione" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-2">
+                    Coibentazione
+                  </a>
+                </div>
+              </div>
+              
+              <div>
+                <a href="#contatti" className="block text-[#21525f] hover:text-[#77a655] transition-colors duration-300 py-3 text-lg font-semibold border-b border-gray-200">
+                  Contatti
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+
         <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
           <div className="flex flex-col items-center text-center mb-6">
             <div className="flex items-center justify-center mb-4 drop-shadow-lg">
-              <Image src="/IconCasa.JPG" alt="Efficentra Icon" width={80} height={80} className="mr-4 shadow-md rounded-lg" />
+              <Image src="/IconCasa.JPG" alt="Efficentra Icon" width={80} height={80} className="mr-4 shadow-md" />
               <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg">Efficentra</h1>
             </div>
-            <p className="text-xl md:text-2xl font-light drop-shadow">Il centro del risparmio per la tua casa</p>
+            <p className="text-xl md:text-2xl font-light drop-shadow">Risparmia sui consumi, investi sulla casa</p>
           </div>
         </div>
       </div>
