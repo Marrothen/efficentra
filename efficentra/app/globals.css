@@ -70,9 +70,41 @@ p, span, div, a, button, input, textarea, label {
 /* Prevent horizontal scroll when dialog is open */
 .dialog-open {
   overflow-x: hidden;
+  /* Prevent viewport from scrolling on mobile when dialog is open */
+  position: fixed;
+  width: 100%;
 }
 
 /* Ensure dialog is always on top and not blurred */
 .dialog-overlay {
   backdrop-filter: none;
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 640px) {
+  /* Prevent zoom on input focus on iOS */
+  input[type="email"],
+  input[type="tel"],
+  input[type="text"],
+  textarea {
+    font-size: 16px;
+  }
+  
+  /* Improve touch targets */
+  button, 
+  a,
+  input,
+  textarea {
+    min-height: 44px;
+  }
+}
+
+/* Smooth scrolling for better mobile experience */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better mobile touch handling */
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
