@@ -3,6 +3,82 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
+// Dati delle card per la dialog
+const cardData = {
+  caldaie: {
+    title: "CALDAIE",
+    subtitle: "DI ULTIMA GENERAZIONE",
+    image: "/H-57_CEOGROUP_Efficentra_-003.jpg",
+    icon: "/Caldia icon 2.png",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    features: [
+      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
+      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
+      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
+    ]
+  },
+  climatizzatori: {
+    title: "CLIMATIZZATORI",
+    subtitle: "PER IL RAFFRESCAMENTO",
+    image: "/Climatizzatore.jpg",
+    icon: "/Climatizzatori icon 2.png",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    features: [
+      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
+      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
+      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
+    ]
+  },
+  fotovoltaico: {
+    title: "IMPIANTO",
+    subtitle: "FOTOVOLTAICO",
+    image: "/impiantofotovoltaico.jpg",
+    icon: "/fotovoltaico ifcon 2.png",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    features: [
+      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
+      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
+      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
+    ]
+  },
+  pompe: {
+    title: "POMPE",
+    subtitle: "DI CALORE",
+    image: "/PompeCalore.jpg",
+    icon: "/Pompe icon 2.png",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    features: [
+      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
+      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
+      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
+    ]
+  },
+  infissi: {
+    title: "SERRAMENTI",
+    subtitle: "E INFISSI ISOLANTI",
+    image: "/Infissi.jpg",
+    icon: "/infissi icon 2.png",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    features: [
+      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
+      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
+      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
+    ]
+  },
+  pareti: {
+    title: "COIBENTAZIONE",
+    subtitle: "PARETI E TETTO",
+    image: "/pareti.jpg",
+    icon: "/pareti icon 2.png",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    features: [
+      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
+      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
+      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
+    ]
+  }
+};
+
 // Commentato temporaneamente in quanto non utilizzato
 /*
 const targetDate = new Date('2030-01-01T00:00:00');
@@ -34,6 +110,15 @@ const calculateTimeLeft = () => {
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState<string | null>(null);
+  
+  const openDialog = (cardKey: string) => {
+    setSelectedCard(cardKey);
+  };
+  
+  const closeDialog = () => {
+    setSelectedCard(null);
+  };
 
   // Rimuoviamo il timer del countdown che non viene utilizzato attualmente
   // ma lo teniamo pronto per quando servirà
@@ -169,7 +254,10 @@ export default function Home() {
           {/* Prima riga - 3 card */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {/* Card 1 - Caldaie di ultima generazione */}
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <div 
+              className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+              onClick={() => openDialog('caldaie')}
+            >
               <div className="relative h-64 overflow-hidden">
                 <Image 
                   src="/H-57_CEOGROUP_Efficentra_-003.jpg" 
@@ -206,7 +294,10 @@ export default function Home() {
             </div>
             
             {/* Card 2 - Climatizzatori per il raffrescamento */}
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <div 
+              className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+              onClick={() => openDialog('climatizzatori')}
+            >
               <div className="relative h-64 overflow-hidden">
                 <Image 
                   src="/Climatizzatore.jpg" 
@@ -243,7 +334,10 @@ export default function Home() {
             </div>
             
             {/* Card 3 - Impianto fotovoltaico */}
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <div 
+              className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+              onClick={() => openDialog('fotovoltaico')}
+            >
               <div className="relative h-64 overflow-hidden">
                 <Image 
                   src="/impiantofotovoltaico.jpg" 
@@ -283,7 +377,10 @@ export default function Home() {
           {/* Seconda riga - 3 card */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 4 - Pompe di calore */}
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <div 
+              className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+              onClick={() => openDialog('pompe')}
+            >
               <div className="relative h-64 overflow-hidden">
                 <Image 
                   src="/PompeCalore.jpg" 
@@ -320,7 +417,10 @@ export default function Home() {
             </div>
             
             {/* Card 5 - Serramenti e infissi isolanti */}
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <div 
+              className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+              onClick={() => openDialog('infissi')}
+            >
               <div className="relative h-64 overflow-hidden">
                 <Image 
                   src="/Infissi.jpg" 
@@ -357,7 +457,10 @@ export default function Home() {
             </div>
             
             {/* Card 6 - Coibentazione pareti e tetto */}
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <div 
+              className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+              onClick={() => openDialog('pareti')}
+            >
               <div className="relative h-64 overflow-hidden">
                 <Image 
                   src="/pareti.jpg" 
@@ -772,6 +875,96 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      
+      {/* Dialog Modal */}
+      {selectedCard && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-lg relative">
+            
+            {/* Sezione 1: Logo Efficentra */}
+            <div className="bg-[#77a655] px-6 py-4 relative">
+              <div className="flex items-center justify-center">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
+                    <svg className="w-5 h-5 text-[#77a655]" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                    </svg>
+                  </div>
+                  <div className="text-white">
+                    <h1 className="text-2xl font-bold">Efficentra</h1>
+                    <p className="text-sm opacity-90">Risparmi sui consumi, investi sulla casa</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Close Button */}
+              <button
+                onClick={closeDialog}
+                className="absolute top-4 right-4 text-white hover:bg-white hover:bg-opacity-20 rounded-full p-1 transition-colors duration-200"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            {/* Sezione 2: Immagine */}
+            <div className="relative h-64">
+              <Image
+                src={cardData[selectedCard as keyof typeof cardData].image}
+                alt={cardData[selectedCard as keyof typeof cardData].title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            
+            {/* Sezione 3: Icona + Titolo */}
+            <div className="bg-[#33596c] px-6 py-4">
+              <div className="flex items-center space-x-4">
+                <div className="w-16 h-16 flex items-center justify-center">
+                  <Image
+                    src={cardData[selectedCard as keyof typeof cardData].icon}
+                    alt="Icon"
+                    width={64}
+                    height={64}
+                    className="w-16 h-16"
+                  />
+                </div>
+                <div className="text-white">
+                  <h2 className="text-3xl font-bold mb-1">
+                    {cardData[selectedCard as keyof typeof cardData].title}
+                  </h2>
+                  <p className="text-lg opacity-90">
+                    {cardData[selectedCard as keyof typeof cardData].subtitle}
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Sezione 4: Testo */}
+            <div className="bg-gray-100 p-6 space-y-4">
+              <div className="space-y-4">
+                <p className="text-gray-700 leading-relaxed">
+                  {cardData[selectedCard as keyof typeof cardData].description}
+                </p>
+                
+                <p className="text-gray-700 leading-relaxed">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                </p>
+              </div>
+              
+              <div className="space-y-2">
+                {cardData[selectedCard as keyof typeof cardData].features.map((feature, index) => (
+                  <div key={index} className="flex items-start space-x-2">
+                    <span className="text-[#77a655] font-bold mt-1">•</span>
+                    <p className="text-gray-700 leading-relaxed">{feature}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
