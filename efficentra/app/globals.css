@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+/* Importazione font Gotham */
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Book_2.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -22,5 +39,30 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Gotham', Arial, Helvetica, sans-serif;
+}
+
+/* Classi globali per i font Gotham */
+* {
+  font-family: 'Gotham', Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Gotham', Arial, Helvetica, sans-serif;
+  font-weight: 700; /* Usa Gotham Bold per tutti i titoli */
+}
+
+p, span, div, a, button, input, textarea, label {
+  font-family: 'Gotham', Arial, Helvetica, sans-serif;
+  font-weight: 400; /* Usa Gotham Book per il testo normale */
+}
+
+.font-gotham-bold {
+  font-family: 'Gotham', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+.font-gotham-book {
+  font-family: 'Gotham', Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }

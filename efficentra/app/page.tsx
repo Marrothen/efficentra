@@ -125,7 +125,7 @@ export default function Home() {
       {/* Video Section */}
       <div className="relative">
         {/* Video Container */}
-        <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+        <div className="relative w-full h-[28vh] sm:h-[35vh] md:h-[70vh] overflow-hidden">
           <video 
             className="w-full h-full object-cover"
             autoPlay
@@ -160,102 +160,234 @@ export default function Home() {
         {/* Header */}
         <div className="container mx-auto px-4 pt-16 pb-8">
           <div className="flex items-center justify-center mb-12">
-            <div className="h-1 w-16 bg-[#77a655] mr-6"></div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#33596c] tracking-tight">COSA OFFRIAMO</h2>
-            <div className="h-1 w-16 bg-[#77a655] ml-6"></div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#33596c] tracking-tight">I NOSTRI SERVIZI</h2>
           </div>
         </div>
 
         {/* Content */}
         <div className="container mx-auto px-4 md:px-8 pb-16 relative z-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Feature 1 - Sistemi di climatizzazione */}
+          {/* Prima riga - 3 card */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {/* Card 1 - Caldaie di ultima generazione */}
             <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <div className="relative h-64 overflow-hidden">
-                <div className="absolute top-0 left-0 h-full w-3"></div>
                 <Image 
                   src="/H-57_CEOGROUP_Efficentra_-003.jpg" 
-                  alt="Caldaie e sistemi di climatizzazione" 
+                  alt="Caldaie di ultima generazione" 
                   width={600} 
                   height={300}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center mb-3">
-                  <svg className="w-6 h-6 mr-2 text-[#77a655]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
-                  </svg>
-                  <h3 className="text-2xl font-semibold text-[#33596c]">Caldaie e climatizzazione</h3>
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                    <Image 
+                      src="/Caldia icon.png" 
+                      alt="Caldaie icon" 
+                      width={48} 
+                      height={48}
+                      className="w-12 h-12"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#33596c]">Caldaie di ultima generazione</h3>
+                  </div>
                 </div>
-                <p className="text-[#33596c] text-lg mb-2">A basso impatto energetico</p>
-                  <div className="mt-4 pt-4 border-t border-gray-100">
-                  <div className="flex items-center text-[#77a655]">
-                    <svg className="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <div className="mt-4 pt-4 border-t border-gray-100">
+                  <div className="flex items-center text-[#77a655] mb-2">
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-sm font-medium">Caldaie ad alta efficienza e pompe di calore</span>
+                    <span className="text-sm font-medium">Alta efficienza energetica</span>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Feature 2 - Impianti fotovoltaici */}
+            {/* Card 2 - Climatizzatori per il raffrescamento */}
             <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <div className="relative h-64 overflow-hidden">
-                <div className="absolute top-0 left-0 h-full w-3 bg-[#d9dce4] z-10"></div>
                 <Image 
-                  src="/H-57_CEOGROUP_Efficentra_-004.jpg" 
-                  alt="Pannelli fotovoltaici" 
+                  src="/Climatizzatore.jpg" 
+                  alt="Climatizzatori per il raffrescamento" 
                   width={600} 
                   height={300}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center mb-3">
-                  <svg className="w-6 h-6 mr-2 text-[#77a655]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-                  </svg>
-                  <h3 className="text-2xl font-semibold text-[#33596c]">Impianti fotovoltaici</h3>
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                    <Image 
+                      src="/Climatizzatori icon.png" 
+                      alt="Climatizzatori icon" 
+                      width={48} 
+                      height={48}
+                      className="w-12 h-12"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#33596c]">Climatizzatori per il raffrescamento</h3>
+                  </div>
                 </div>
-                <p className="text-[#33596c] text-lg">Su misura, con o senza accumulo</p>
                 <div className="mt-4 pt-4 border-t border-gray-100">
-                  <div className="flex items-center text-[#77a655]">
-                    <svg className="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-center text-[#77a655] mb-2">
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-sm font-medium">Energie rinnovabili</span>
+                    <span className="text-sm font-medium">Raffrescamento a basso impatto energetico</span>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Feature 3 - Serramenti isolanti */}
+            {/* Card 3 - Impianto fotovoltaico */}
             <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <div className="relative h-64 overflow-hidden">
                 <Image 
-                  src="/H-57_CEOGROUP_Efficentra_-002.jpg" 
-                  alt="Serramenti isolanti" 
+                  src="/impiantofotovoltaico.jpg" 
+                  alt="Impianto fotovoltaico" 
                   width={600} 
                   height={300}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center mb-3">
-                  <svg className="w-6 h-6 mr-2 text-[#77a655]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm8 8v2h1v1H4v-1h1v-2a1 1 0 011-1h.01a1 1 0 011 1v2h1v-2a1 1 0 011-1h.01a1 1 0 011 1v2h1v-2a1 1 0 011-1h.01a1 1 0 011 1v2h1zm-1-5H8v4h7V8z" clipRule="evenodd" />
-                  </svg>
-                  <h3 className="text-2xl font-semibold text-[#33596c]">Serramenti isolanti</h3>
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                    <Image 
+                      src="/fotovoltaico ifcon.png" 
+                      alt="Fotovoltaico icon" 
+                      width={48} 
+                      height={48}
+                      className="w-12 h-12"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#33596c]">Impianto fotovoltaico</h3>
+                  </div>
                 </div>
-                <p className="text-[#33596c] text-lg">Per ridurre la dispersione termica</p>
                 <div className="mt-4 pt-4 border-t border-gray-100">
-                  <div className="flex items-center text-[#77a655]">
-                    <svg className="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-center text-[#77a655] mb-2">
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-sm font-medium">Riduzione fino al 60%</span>
+                    <span className="text-sm font-medium">Rendi la tua casa indipendente</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Seconda riga - 3 card */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 4 - Pompe di calore */}
+            <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="relative h-64 overflow-hidden">
+                <Image 
+                  src="/PompeCalore.jpg" 
+                  alt="Pompe di calore" 
+                  width={600} 
+                  height={300}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                    <Image 
+                      src="/Pompe icon.png" 
+                      alt="Pompe icon" 
+                      width={48} 
+                      height={48}
+                      className="w-12 h-12"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#33596c]">Pompe di calore</h3>
+                  </div>
+                </div>
+                <div className="mt-4 pt-4 border-t border-gray-100">
+                  <div className="flex items-center text-[#77a655] mb-2">
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm font-medium">Clima domestico ideale</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Card 5 - Serramenti e infissi isolanti */}
+            <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="relative h-64 overflow-hidden">
+                <Image 
+                  src="/Infissi.jpg" 
+                  alt="Serramenti e infissi isolanti" 
+                  width={600} 
+                  height={300}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                    <Image 
+                      src="/infissi icon.png" 
+                      alt="Infissi icon" 
+                      width={48} 
+                      height={48}
+                      className="w-12 h-12"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#33596c]">Serramenti e infissi isolanti</h3>
+                  </div>
+                </div>
+                <div className="mt-4 pt-4 border-t border-gray-100">
+                  <div className="flex items-center text-[#77a655] mb-2">
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm font-medium">Per ridurre la dispersione termica fino al 60%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Card 6 - Coibentazione pareti e tetto */}
+            <div className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="relative h-64 overflow-hidden">
+                <Image 
+                  src="/pareti.jpg" 
+                  alt="Coibentazione pareti e tetto" 
+                  width={600} 
+                  height={300}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                    <Image 
+                      src="/pareti icon.png" 
+                      alt="Pareti icon" 
+                      width={48} 
+                      height={48}
+                      className="w-12 h-12"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#33596c]">Coibentazione pareti e tetto</h3>
+                  </div>
+                </div>
+                <div className="mt-4 pt-4 border-t border-gray-100">
+                  <div className="flex items-center text-[#77a655] mb-2">
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm font-medium">Per massimizzare il risparmio energetico</span>
                   </div>
                 </div>
               </div>
