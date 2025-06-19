@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Dati delle card per la dialog
 const cardData = {
@@ -114,11 +114,20 @@ export default function Home() {
   
   const openDialog = (cardKey: string) => {
     setSelectedCard(cardKey);
+    document.body.classList.add('dialog-open');
   };
   
   const closeDialog = () => {
     setSelectedCard(null);
+    document.body.classList.remove('dialog-open');
   };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove('dialog-open');
+    };
+  }, []);
 
   // Rimuoviamo il timer del countdown che non viene utilizzato attualmente
   // ma lo teniamo pronto per quando servirà
@@ -135,8 +144,10 @@ export default function Home() {
   */
 
   return (
-    <main className="flex flex-col">
-      {/* Hero Section with Navigation */}
+    <>
+      <div className={`${selectedCard ? 'blur-sm' : ''} transition-all duration-300`}>
+        <main className="flex flex-col">
+          {/* Hero Section with Navigation */}
       <div className="bg-[#77a655] text-white flex flex-col justify-center items-center px-4 py-8  relative shadow-xl z-10">
         <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-transparent to-black/5 pointer-events-none"></div>
         
@@ -197,7 +208,7 @@ export default function Home() {
         </div>
 
         <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
-          <div className="flex flex-col items-center text-center mb-6">
+          <div className="flex flex-col items-center text-center">
             <div className="flex items-center justify-center mb-4 drop-shadow-lg">
               <Image src="/IconCasa.JPG" alt="Efficentra Icon" width={80} height={80} className="mr-4 shadow-md" />
               <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg">Efficentra</h1>
@@ -810,7 +821,7 @@ export default function Home() {
             {/* Logo e info azienda */}
             <div className="flex flex-col items-center md:items-start">
               <div className="flex items-center mb-4">
-                <Image src="/IconCasa.JPG" alt="Efficentra Icon" width={50} height={50} className="mr-3 shadow-md rounded-lg" />
+                <Image src="/IconCasa.JPG" alt="Efficentra Icon" width={50} height={50} className="mr-3 shadow-md" />
                 <h3 className="text-3xl font-bold">Efficentra</h3>
               </div>
               <p className="text-gray-300 text-center md:text-left">Il centro del risparmio per la tua casa</p>
@@ -875,25 +886,24 @@ export default function Home() {
           </div>
         </div>
       </footer>
+        </main>
+      </div>
       
-      {/* Dialog Modal */}
+      {/* Dialog Modal - Fuori dal blur */}
       {selectedCard && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-lg relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 dialog-overlay">
+          <div className="bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-lg relative shadow-2xl"
+               style={{ filter: 'none' }}>
             
-            {/* Sezione 1: Logo Efficentra */}
-            <div className="bg-[#77a655] px-6 py-4 relative">
-              <div className="flex items-center justify-center">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#77a655]" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-                    </svg>
+            {/* Sezione 1: Logo Efficentra - Stesso layout della pagina principale */}
+            <div className="bg-[#77a655] px-6 py-5 relative">
+              <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center text-center ">
+                  <div className="flex items-center justify-center mb-3 drop-shadow-lg">
+                    <Image src="/IconCasa.JPG" alt="Efficentra Icon" width={64} height={64} className="mr-3 shadow-md" />
+                    <h1 className="text-3xl md:text-4xl font-bold drop-shadow-lg text-white">Efficentra</h1>
                   </div>
-                  <div className="text-white">
-                    <h1 className="text-2xl font-bold">Efficentra</h1>
-                    <p className="text-sm opacity-90">Risparmi sui consumi, investi sulla casa</p>
-                  </div>
+                  <p className="text-lg md:text-xl font-light drop-shadow text-white">Risparmia sui consumi, investi sulla casa</p>
                 </div>
               </div>
               
@@ -919,7 +929,7 @@ export default function Home() {
             </div>
             
             {/* Sezione 3: Icona + Titolo */}
-            <div className="bg-[#33596c] px-6 py-4">
+            <div className="bg-[#33596c] px-6 py-5">
               <div className="flex items-center space-x-4">
                 <div className="w-16 h-16 flex items-center justify-center">
                   <Image
@@ -942,7 +952,7 @@ export default function Home() {
             </div>
             
             {/* Sezione 4: Testo */}
-            <div className="bg-gray-100 p-6 space-y-4">
+            <div className="bg-[#ebf1ea] p-6 space-y-4">
               <div className="space-y-4">
                 <p className="text-gray-700 leading-relaxed">
                   {cardData[selectedCard as keyof typeof cardData].description}
@@ -965,6 +975,6 @@ export default function Home() {
           </div>
         </div>
       )}
-    </main>
+    </>
   );
 }

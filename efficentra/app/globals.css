@@ -66,3 +66,13 @@ p, span, div, a, button, input, textarea, label {
   font-family: 'Gotham', Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
+
+/* Prevent horizontal scroll when dialog is open */
+.dialog-open {
+  overflow-x: hidden;
+}
+
+/* Ensure dialog is always on top and not blurred */
+.dialog-overlay {
+  backdrop-filter: none;
+}
