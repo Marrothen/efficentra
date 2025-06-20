@@ -28,70 +28,75 @@ const cardData = {
     subtitle: "PER IL RAFFRESCAMENTO",
     image: "/Climatizzatore.jpg",
     icon: "/Climatizzatori icon 2.png",
-    smallTitle: "Fresco perfetto, in ogni stagione.",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    smallTitle: "La temperatura perfetta, tutto l'anno.",
+    description: "Climatizzatori silenziosi e ad alta efficienza energetica. Soluzioni personalizzate per abitazioni, uffici e attività commerciali. Rapidità e cura nell'installazione.",
     features: [
-      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
-      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
-      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
+      "Impianti monosplit e multisplit",
+      "Inverter di ultima generazione",
+      "50% di detrazione fiscale"
     ],
-    greenText: "Comfort climatico avanzato per la tua casa."
+    greenText: "Servizio chiavi in mano: dalla consulenza tecnica alla messa in funzione."
   },
   fotovoltaico: {
     title: "IMPIANTO",
     subtitle: "FOTOVOLTAICO",
     image: "/impiantofotovoltaico.jpg",
     icon: "/fotovoltaico ifcon 2.png",
-    smallTitle: "Energia pulita, risparmio sicuro.",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    smallTitle: "Energia pulita, risparmio reale.",
+    description: "Realizziamo impianti fotovoltaici residenziali e aziendali con componenti ad alta resa, inverter intelligenti e batterie di accumulo opzionali. Offriamo soluzioni chiavi in mano, pensate per garantire autonomia energetica, risparmio immediato e zero burocrazia.",
     features: [
-      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
-      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
-      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
+      "Impianti su misura a partire da 3 kW",
+      "Inverter e pannelli di ultima generazione",
+      "Sistemi di accumulo integrati",
+      "Iscrizione alla CER \"Comunità Energetica Rinnovabile\": con la CER si condivide l'energia prodotta, ottenendo incentivi e aumentando il valore del proprio immobile.",
+      "Contributo a fondo perduto fino al 40% grazie agli incentivi del GSE",
+      "Accesso al Bonus Ristrutturazione 50% o Superbonus (se applicabile)"
     ],
-    greenText: "Sostenibilità e innovazione per il futuro della tua casa."
+    greenText: "Produci. Risparmia. Guadagna."
   },
   pompe: {
     title: "POMPE",
     subtitle: "DI CALORE",
     image: "/PompeCalore.jpg",
     icon: "/Pompe icon 2.png",
-    smallTitle: "Efficienza energetica, comfort totale.",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    smallTitle: "Efficienza energetica, tutto l'anno.",
+    description: "Le pompe di calore sono una soluzione sostenibile e versatile per il riscaldamento, il raffrescamento e la produzione di acqua calda sanitaria. Ideali per case e abitazioni ed uffici, garantiscono comfort continuo e un notevole risparmio in bolletta.",
     features: [
-      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
-      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
-      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
+      "Sistemi aria-acqua e ibridi",
+      "Compatibilità con impianti radiatori, a pavimento o fancoil",
+      "Installazione rapida e personalizzata",
+      "Tecnologie ad alta efficienza energetica",
+      "Detrazione del 50% con Bonus Casa"
     ],
-    greenText: "Tecnologia avanzata per il massimo risparmio energetico."
+    greenText: "Un unico impianto per gestire clima e acqua calda, con il massimo dell'efficienza."
   },
   infissi: {
     title: "SERRAMENTI",
     subtitle: "E INFISSI ISOLANTI",
     image: "/Infissi.jpg",
     icon: "/infissi icon 2.png",
-    smallTitle: "Isolamento perfetto, design elegante.",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    smallTitle: "Isolamento termico, sicurezza e design.",
+    description: "Serramenti in PVC, alluminio e legno-alluminio, progettati per migliorare l'efficienza energetica della tua casa, ridurre i costi di riscaldamento e aumentare il comfort abitativo.",
     features: [
-      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
-      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
-      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
+      "Finestre e porte-finestre su misura",
+      "Vetri basso emissivi e certificati",
+      "Detrazione del 50% con Bonus Infissi"
     ],
-    greenText: "Qualità superiore per la sicurezza e il comfort della tua casa."
+    greenText: "Estetica, funzionalità e risparmio: la scelta che fa bene alla casa e al portafoglio"
   },
   pareti: {
     title: "COIBENTAZIONE",
     subtitle: "PARETI E TETTO",
     image: "/pareti.jpg",
     icon: "/pareti icon 2.png",
-    smallTitle: "Isolamento termico, benessere garantito.",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    smallTitle: "Il primo passo verso una casa ad alte prestazioni.",
+    description: "La coibentazione del tetto è fondamentale per ridurre dispersioni termiche, mantenere la temperatura ideale tutto l'anno e accedere ai principali incentivi fiscali.",
     features: [
-      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
-      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
-      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
+      "Interventi rapidi e non invasivi",
+      "Materiali certificati e isolanti ad alte prestazioni",
+      "Accesso al Superbonus (se combinato con altri interventi trainanti) o al Bonus Casa"
     ],
-    greenText: "Risparmio energetico e comfort abitativo di nuova generazione."
+    greenText: "Massimo comfort invernale ed estivo, minimo consumo."
   }
 };
 
@@ -175,13 +180,16 @@ export default function Home() {
   useEffect(() => {
     if (selectedCard) {
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('dialog-open');
     } else {
       document.body.style.overflow = '';
+      document.body.classList.remove('dialog-open');
     }
 
     // Cleanup al dismount
     return () => {
       document.body.style.overflow = '';
+      document.body.classList.remove('dialog-open');
     };
   }, [selectedCard]);
 
@@ -938,11 +946,13 @@ export default function Home() {
                   </svg>
                   <span className="text-sm sm:text-base">023560917</span>
                 </div>
-                <div className="flex items-center">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-[#77a655] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="flex items-start">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-[#77a655] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
-                  <a href="mailto:info@efficentra.it" className="hover:text-[#77a655] transition-colors duration-300 text-sm sm:text-base break-all">info@efficentra.it</a>
+                  <span className="text-sm sm:text-base leading-tight">
+                    <a href="mailto:info@efficentra.it" className="hover:text-[#77a655] transition-colors duration-300">info@efficentra.it</a>
+                  </span>
                 </div>
                 <div className="flex items-start">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-[#77a655] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -954,28 +964,10 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Orari e social */}
+            {/* Orari di apertura */}
             <div className="flex flex-col items-center md:items-start">
-              <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-[#77a655]">Seguici</h4>
-              <div className="flex space-x-3 sm:space-x-4 mb-4 sm:mb-6">
-                <a href="#" className="bg-white bg-opacity-20 p-2 rounded-full hover:bg-[#77a655] transition-colors duration-300">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
-                  </svg>
-                </a>
-                <a href="#" className="bg-white bg-opacity-20 p-2 rounded-full hover:bg-[#77a655] transition-colors duration-300">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path>
-                  </svg>
-                </a>
-                <a href="#" className="bg-white bg-opacity-20 p-2 rounded-full hover:bg-[#77a655] transition-colors duration-300">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-                  </svg>
-                </a>
-              </div>
-              <div>
-                <h5 className="text-base sm:text-lg font-medium mb-2 text-[#77a655]">Orari di apertura</h5>
+              <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-[#77a655]">Orari di apertura</h4>
+              <div className="space-y-1 sm:space-y-2">
                 <p className="text-gray-300 text-sm sm:text-base">Lun - Ven: 9:00 - 18:00</p>
                 <p className="text-gray-300 text-sm sm:text-base">Sab - Dom: Chiuso</p>
               </div>
@@ -993,40 +985,41 @@ export default function Home() {
       {/* Dialog Modal - Fuori dal blur */}
       {selectedCard && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 dialog-overlay"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 dialog-overlay"
           onClick={closeDialog}
+          style={{ left: 0, right: 0, top: 0, bottom: 0 }}
         >
           <div 
-            className="bg-white w-full max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto rounded-lg relative shadow-2xl"
-            style={{ filter: 'none' }}
+            className="bg-white w-[calc(100vw-16px)] sm:w-full max-w-none sm:max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto rounded-lg relative shadow-2xl"
+            style={{ filter: 'none', maxWidth: 'calc(100vw - 16px)' }}
             onClick={(e) => e.stopPropagation()}
           >
             
             {/* Sezione 1: Logo Efficentra - Stesso layout della pagina principale */}
-            <div className="bg-[#77a655] px-4 sm:px-6 py-4 sm:py-5 relative">
+            <div className="bg-[#77a655] px-3 sm:px-6 py-3 sm:py-5 relative">
               <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
                 <div className="flex flex-col items-center text-center">
-                  <div className="flex items-center justify-center mb-2 sm:mb-3 drop-shadow-lg">
-                    <Image src="/IconCasa.JPG" alt="Efficentra Icon" width={50} height={50} className="mr-2 sm:mr-3 shadow-md" />
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold drop-shadow-lg text-white">Efficentra</h1>
+                  <div className="flex items-center justify-center mb-1 sm:mb-3 drop-shadow-lg">
+                    <Image src="/IconCasa.JPG" alt="Efficentra Icon" width={35} height={35} className="sm:w-[50px] sm:h-[50px] mr-2 sm:mr-3 shadow-md" />
+                    <h1 className="text-lg sm:text-3xl md:text-4xl font-bold drop-shadow-lg text-white">Efficentra</h1>
                   </div>
-                  <p className="text-sm sm:text-lg md:text-xl font-light drop-shadow text-white">Risparmia sui consumi, investi sulla casa</p>
+                  <p className="text-xs sm:text-lg md:text-xl font-light drop-shadow text-white">Risparmia sui consumi, investi sulla casa</p>
                 </div>
               </div>
               
               {/* Close Button */}
               <button
                 onClick={closeDialog}
-                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white hover:bg-white hover:bg-opacity-20 rounded-full p-1 transition-colors duration-200"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:bg-white hover:bg-opacity-20 rounded-full p-1 transition-colors duration-200"
               >
-                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
             
             {/* Sezione 2: Immagine */}
-            <div className="relative h-48 sm:h-56 md:h-64">
+            <div className="relative h-32 sm:h-56 md:h-64">
               <Image
                 src={cardData[selectedCard as keyof typeof cardData].image}
                 alt={cardData[selectedCard as keyof typeof cardData].title}
@@ -1036,22 +1029,22 @@ export default function Home() {
             </div>
             
             {/* Sezione 3: Icona + Titolo */}
-            <div className="bg-[#33596c] px-4 sm:px-6 py-4 sm:py-5">
-              <div className="flex items-center space-x-3 sm:space-x-4">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0">
+            <div className="bg-[#33596c] px-3 sm:px-6 py-3 sm:py-5">
+              <div className="flex items-center space-x-2 sm:space-x-4">
+                <div className="w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0">
                   <Image
                     src={cardData[selectedCard as keyof typeof cardData].icon}
                     alt="Icon"
-                    width={64}
-                    height={64}
-                    className="w-12 h-12 sm:w-16 sm:h-16"
+                    width={32}
+                    height={32}
+                    className="w-8 h-8 sm:w-16 sm:h-16"
                   />
                 </div>
                 <div className="text-white min-w-0 flex-1">
-                  <h2 className="text-2xl sm:text-3xl font-bold mb-0 sm:mb-1 leading-tight">
+                  <h2 className="text-lg sm:text-3xl font-bold mb-0 sm:mb-1 leading-tight">
                     {cardData[selectedCard as keyof typeof cardData].title}
                   </h2>
-                  <p className="text-sm sm:text-lg opacity-90">
+                  <p className="text-xs sm:text-lg opacity-90">
                     {cardData[selectedCard as keyof typeof cardData].subtitle}
                   </p>
                 </div>
@@ -1059,41 +1052,41 @@ export default function Home() {
             </div>
             
             {/* Sezione 4: Testo */}
-            <div className="bg-[#ebf1ea] p-8 sm:p-10 space-y-4 sm:space-y-5">
+            <div className="bg-[#ebf1ea] p-4 sm:p-10 space-y-3 sm:space-y-5">
               {/* Titolo piccolo in bold */}
               {(cardData[selectedCard as keyof typeof cardData] as any).smallTitle && (
-                <h3 className="text-[#33596c] font-bold text-lg sm:text-xl mb-3 sm:mb-4 leading-tight">
+                <h3 className="text-[#33596c] font-bold text-base sm:text-xl mb-2 sm:mb-4 leading-tight">
                   {(cardData[selectedCard as keyof typeof cardData] as any).smallTitle}
                 </h3>
               )}
               
-              <div className="space-y-3 sm:space-y-4">
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+              <div className="space-y-2 sm:space-y-4">
+                <p className="text-gray-700 leading-relaxed text-xs sm:text-base">
                   {cardData[selectedCard as keyof typeof cardData].description}
                 </p>
               </div>
               
-              <div className="space-y-2">
+              <div className="space-y-1 sm:space-y-2">
                 {cardData[selectedCard as keyof typeof cardData].features.map((feature, index) => (
                   <div key={index} className="flex items-start space-x-2">
-                    <span className="text-[#77a655] font-bold mt-1 flex-shrink-0">•</span>
-                    <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{feature}</p>
+                    <span className="text-[#77a655] font-bold mt-0.5 sm:mt-1 flex-shrink-0 text-xs sm:text-base">•</span>
+                    <p className="text-gray-700 leading-relaxed text-xs sm:text-base">{feature}</p>
                   </div>
                 ))}
               </div>
               
               {/* Testo verde finale */}
               {(cardData[selectedCard as keyof typeof cardData] as any).greenText && (
-                <p className="text-[#77a655] font-medium italic text-sm sm:text-base mt-5 sm:mt-6">
+                <p className="text-[#77a655] font-medium italic text-xs sm:text-base mt-3 sm:mt-6">
                   {(cardData[selectedCard as keyof typeof cardData] as any).greenText}
                 </p>
               )}
               
               {/* Bottone RICHIEDI INFORMAZIONI */}
-              <div className="flex justify-center pt-4 sm:pt-6">
+              <div className="flex justify-center pt-3 sm:pt-6">
                 <button
                   onClick={scrollToContact}
-                  className="px-8 py-3 bg-[#77a655] hover:bg-[#6a9549] text-white font-medium rounded-full transition-colors duration-200 text-sm shadow-md focus:outline-none focus:ring-2 focus:ring-[#77a655] focus:ring-offset-2"
+                  className="px-4 py-2 sm:px-8 sm:py-3 bg-[#77a655] hover:bg-[#6a9549] text-white font-medium rounded-full transition-colors duration-200 text-xs sm:text-sm shadow-md focus:outline-none focus:ring-2 focus:ring-[#77a655] focus:ring-offset-2"
                 >
                   RICHIEDI INFORMAZIONI
                 </button>
