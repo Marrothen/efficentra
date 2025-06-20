@@ -79,6 +79,14 @@ p, span, div, a, button, input, textarea, label {
   bottom: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
+  overflow: hidden !important;
+}
+
+/* Prevent any overflow when dialog is open */
+html:has(.dialog-overlay),
+body:has(.dialog-overlay) {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
 }
 
 /* Additional mobile optimizations */

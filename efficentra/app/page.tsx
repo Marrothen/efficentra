@@ -135,6 +135,7 @@ export default function Home() {
   
   const openDialog = (cardKey: string) => {
     setSelectedCard(cardKey);
+    setIsMenuOpen(false); // Chiudi il menu quando si apre la dialog
   };
   
   const closeDialog = () => {
@@ -242,7 +243,7 @@ export default function Home() {
         </button>
 
         {/* Mobile Navigation Menu */}
-        <div className={`fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl transform transition-transform duration-300 z-50 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className={`fixed top-0 right-0 sm:h-full w-72 sm:w-80 bg-white shadow-2xl transform transition-transform duration-300 z-50 ${isMenuOpen && !selectedCard ? 'translate-x-0' : 'translate-x-full'}`}>
           {/* Header del menu con pulsante chiusura */}
           <div className="flex justify-between items-center p-6 sm:p-8 border-b border-gray-200">
             <h2 className="text-lg sm:text-xl font-semibold text-[#21525f]">Menu</h2>
@@ -984,10 +985,18 @@ export default function Home() {
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 dialog-overlay"
           onClick={closeDialog}
-          style={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          style={{ 
+            left: 0, 
+            right: 0, 
+            top: 0, 
+            bottom: 0,
+            width: '100vw',
+            height: '100vh',
+            overflow: 'hidden'
+          }}
         >
           <div 
-            className="bg-white w-[calc(100vw-16px)] sm:w-full max-w-none sm:max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto rounded-lg relative shadow-2xl"
+            className="bg-white w-[95vw] sm:w-full max-w-none sm:max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto rounded-lg relative shadow-2xl"
             style={{ filter: 'none' }}
             onClick={(e) => e.stopPropagation()}
           >
