@@ -180,16 +180,13 @@ export default function Home() {
   useEffect(() => {
     if (selectedCard) {
       document.body.style.overflow = 'hidden';
-      document.body.classList.add('dialog-open');
     } else {
       document.body.style.overflow = '';
-      document.body.classList.remove('dialog-open');
     }
 
     // Cleanup al dismount
     return () => {
       document.body.style.overflow = '';
-      document.body.classList.remove('dialog-open');
     };
   }, [selectedCard]);
 
@@ -991,7 +988,7 @@ export default function Home() {
         >
           <div 
             className="bg-white w-[calc(100vw-16px)] sm:w-full max-w-none sm:max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto rounded-lg relative shadow-2xl"
-            style={{ filter: 'none', maxWidth: 'calc(100vw - 16px)' }}
+            style={{ filter: 'none' }}
             onClick={(e) => e.stopPropagation()}
           >
             
