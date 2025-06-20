@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import Image from 'next/image';
@@ -10,72 +11,87 @@ const cardData = {
     subtitle: "DI ULTIMA GENERAZIONE",
     image: "/H-57_CEOGROUP_Efficentra_-003.jpg",
     icon: "/Caldia icon 2.png",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
+    smallTitle: "Comfort immediato, risparmio garantito.",
+    description: "Le nostre caldaie rappresentano il massimo dell'efficienza e dell'affidabilità. Sostituiamo il tuo vecchio impianto con modelli di ultima generazione, pensati per offrirti l'ideale comfort termico e una sensibile riduzione dei consumi.",
     features: [
-      "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
-      "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
-      "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
-    ]
+      "Installazione in 48 ore",
+      "Sopralluogo tecnico gratuito",
+      "Caldaie a condensazione ad alta efficienza",
+      "Riduzione dei consumi fino al 40%",
+      "Servizio chiavi in mano: dalla fornitura alla prima accensione",
+      "Tecnici certificati e assistenza garantita"
+    ],
+    greenText: "Tecnologia, professionalità e rapidità d'esecuzione al servizio del tuo benessere."
   },
   climatizzatori: {
     title: "CLIMATIZZATORI",
     subtitle: "PER IL RAFFRESCAMENTO",
     image: "/Climatizzatore.jpg",
     icon: "/Climatizzatori icon 2.png",
+    smallTitle: "Fresco perfetto, in ogni stagione.",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
     features: [
       "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
       "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
       "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
-    ]
+    ],
+    greenText: "Comfort climatico avanzato per la tua casa."
   },
   fotovoltaico: {
     title: "IMPIANTO",
     subtitle: "FOTOVOLTAICO",
     image: "/impiantofotovoltaico.jpg",
     icon: "/fotovoltaico ifcon 2.png",
+    smallTitle: "Energia pulita, risparmio sicuro.",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
     features: [
       "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
       "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
       "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
-    ]
+    ],
+    greenText: "Sostenibilità e innovazione per il futuro della tua casa."
   },
   pompe: {
     title: "POMPE",
     subtitle: "DI CALORE",
     image: "/PompeCalore.jpg",
     icon: "/Pompe icon 2.png",
+    smallTitle: "Efficienza energetica, comfort totale.",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
     features: [
       "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
       "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
       "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
-    ]
+    ],
+    greenText: "Tecnologia avanzata per il massimo risparmio energetico."
   },
   infissi: {
     title: "SERRAMENTI",
     subtitle: "E INFISSI ISOLANTI",
     image: "/Infissi.jpg",
     icon: "/infissi icon 2.png",
+    smallTitle: "Isolamento perfetto, design elegante.",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
     features: [
       "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
       "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
       "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
-    ]
+    ],
+    greenText: "Qualità superiore per la sicurezza e il comfort della tua casa."
   },
   pareti: {
     title: "COIBENTAZIONE",
     subtitle: "PARETI E TETTO",
     image: "/pareti.jpg",
     icon: "/pareti icon 2.png",
+    smallTitle: "Isolamento termico, benessere garantito.",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
     features: [
       "Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
       "Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit",
       "Vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."
-    ]
+    ],
+    greenText: "Risparmio energetico e comfort abitativo di nuova generazione."
   }
 };
 
@@ -118,6 +134,16 @@ export default function Home() {
   
   const closeDialog = () => {
     setSelectedCard(null);
+  };
+
+  const scrollToContact = () => {
+    closeDialog();
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact-form');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   // Disabilita lo scroll quando la dialog è aperta
@@ -732,7 +758,7 @@ export default function Home() {
       </section>
       
       {/* Sezione Contattaci - Form */}
-      <section className="bg-white py-12 sm:py-16">
+      <section id="contact-form" className="bg-white py-12 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Header della sezione */}
@@ -979,14 +1005,17 @@ export default function Home() {
             </div>
             
             {/* Sezione 4: Testo */}
-            <div className="bg-[#ebf1ea] p-4 sm:p-6 space-y-3 sm:space-y-4">
+            <div className="bg-[#ebf1ea] p-8 sm:p-10 space-y-4 sm:space-y-5">
+              {/* Titolo piccolo in bold */}
+              {(cardData[selectedCard as keyof typeof cardData] as any).smallTitle && (
+                <h3 className="text-[#33596c] font-bold text-lg sm:text-xl mb-3 sm:mb-4 leading-tight">
+                  {(cardData[selectedCard as keyof typeof cardData] as any).smallTitle}
+                </h3>
+              )}
+              
               <div className="space-y-3 sm:space-y-4">
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                   {cardData[selectedCard as keyof typeof cardData].description}
-                </p>
-                
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
                 </p>
               </div>
               
@@ -997,6 +1026,23 @@ export default function Home() {
                     <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{feature}</p>
                   </div>
                 ))}
+              </div>
+              
+              {/* Testo verde finale */}
+              {(cardData[selectedCard as keyof typeof cardData] as any).greenText && (
+                <p className="text-[#77a655] font-medium italic text-sm sm:text-base mt-5 sm:mt-6">
+                  {(cardData[selectedCard as keyof typeof cardData] as any).greenText}
+                </p>
+              )}
+              
+              {/* Bottone RICHIEDI INFORMAZIONI */}
+              <div className="flex justify-center pt-4 sm:pt-6">
+                <button
+                  onClick={scrollToContact}
+                  className="px-8 py-3 bg-[#77a655] hover:bg-[#6a9549] text-white font-medium rounded-full transition-colors duration-200 text-sm shadow-md focus:outline-none focus:ring-2 focus:ring-[#77a655] focus:ring-offset-2"
+                >
+                  RICHIEDI INFORMAZIONI
+                </button>
               </div>
             </div>
           </div>
