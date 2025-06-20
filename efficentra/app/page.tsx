@@ -114,20 +114,41 @@ export default function Home() {
   
   const openDialog = (cardKey: string) => {
     setSelectedCard(cardKey);
-    document.body.classList.add('dialog-open');
   };
   
   const closeDialog = () => {
     setSelectedCard(null);
-    document.body.classList.remove('dialog-open');
   };
 
-  // Cleanup on unmount
+  // Disabilita lo scroll quando la dialog è aperta
   useEffect(() => {
+    if (selectedCard) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    // Cleanup al dismount
     return () => {
-      document.body.classList.remove('dialog-open');
+      document.body.style.overflow = '';
     };
-  }, []);
+  }, [selectedCard]);
+
+  // Handle escape key per chiudere la dialog
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && selectedCard) {
+        closeDialog();
+      }
+    };
+
+    if (selectedCard) {
+      document.addEventListener('keydown', handleEscape);
+      return () => {
+        document.removeEventListener('keydown', handleEscape);
+      };
+    }
+  }, [selectedCard]);
 
   // Rimuoviamo il timer del countdown che non viene utilizzato attualmente
   // ma lo teniamo pronto per quando servirà
@@ -518,7 +539,7 @@ export default function Home() {
                 </svg>
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl sm:text-3xl font-semibold mb-2">Pratiche per detrazioni fiscali</h3>
+                <h3 className="text-2xl sm:text-2xl font-semibold mb-2">Pratiche per detrazioni fiscali</h3>
                 <p className="text-lg sm:text-xl mb-3 sm:mb-4">Ecobonus e incentivi statali</p>
                 <div className="inline-flex items-center bg-[#77a655] px-3 sm:px-4 py-2 rounded-full">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -538,7 +559,7 @@ export default function Home() {
                 </svg>
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl sm:text-3xl font-semibold mb-2">Servizio &ldquo;chiavi in mano&rdquo;</h3>
+                <h3 className="text-2xl sm:text-2xl font-semibold mb-2">Servizio &ldquo;chiavi in mano&rdquo;</h3>
                 <p className="text-lg sm:text-xl mb-3 sm:mb-4">Dall&apos;idea alla realizzazione</p>
                 <div className="grid grid-cols-2 gap-2">
                   <div className="flex items-center">
@@ -891,9 +912,15 @@ export default function Home() {
       
       {/* Dialog Modal - Fuori dal blur */}
       {selectedCard && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 dialog-overlay">
-          <div className="bg-white w-full max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto rounded-lg relative shadow-2xl"
-               style={{ filter: 'none' }}>
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 dialog-overlay"
+          onClick={closeDialog}
+        >
+          <div 
+            className="bg-white w-full max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto rounded-lg relative shadow-2xl"
+            style={{ filter: 'none' }}
+            onClick={(e) => e.stopPropagation()}
+          >
             
             {/* Sezione 1: Logo Efficentra - Stesso layout della pagina principale */}
             <div className="bg-[#77a655] px-4 sm:px-6 py-4 sm:py-5 relative">

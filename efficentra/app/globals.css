@@ -67,17 +67,11 @@ p, span, div, a, button, input, textarea, label {
   font-weight: 400;
 }
 
-/* Prevent horizontal scroll when dialog is open */
-.dialog-open {
-  overflow-x: hidden;
-  /* Prevent viewport from scrolling on mobile when dialog is open */
-  position: fixed;
-  width: 100%;
-}
-
 /* Ensure dialog is always on top and not blurred */
 .dialog-overlay {
   backdrop-filter: none;
+  /* Add semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Additional mobile optimizations */
