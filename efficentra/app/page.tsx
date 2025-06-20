@@ -146,6 +146,31 @@ export default function Home() {
     }, 100);
   };
 
+  const handleServiceMenuClick = (serviceKey: string) => {
+    setIsMenuOpen(false); // Chiudi il menu
+    setTimeout(() => {
+      // Scrolla alla sezione servizi
+      const servicesSection = document.querySelector('[data-section="services"]');
+      if (servicesSection) {
+        servicesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Apri la dialog del servizio dopo un breve ritardo
+      setTimeout(() => {
+        openDialog(serviceKey);
+      }, 500);
+    }, 100);
+  };
+
+  const handleContactsMenuClick = () => {
+    setIsMenuOpen(false); // Chiudi il menu
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact-form');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   // Disabilita lo scroll quando la dialog è aperta
   useEffect(() => {
     if (selectedCard) {
@@ -212,43 +237,72 @@ export default function Home() {
         </button>
 
         {/* Mobile Navigation Menu */}
-        <div className={`fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl transform transition-transform duration-300 z-40 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="p-6 sm:p-8 pt-16 sm:pt-20">
+        <div className={`fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl transform transition-transform duration-300 z-50 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          {/* Header del menu con pulsante chiusura */}
+          <div className="flex justify-between items-center p-6 sm:p-8 border-b border-gray-200">
+            <h2 className="text-lg sm:text-xl font-semibold text-[#21525f]">Menu</h2>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+              aria-label="Chiudi menu"
+            >
+              <svg className="w-6 h-6 text-[#21525f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          
+          <div className="p-6 sm:p-8 pt-6 sm:pt-8">
             <nav className="space-y-4 sm:space-y-6">
-              <div className="mb-6 sm:mb-8">
-                <a href="#chi-siamo" className="block text-[#21525f] hover:text-[#77a655] transition-colors duration-300 py-2 sm:py-3 text-base sm:text-lg font-semibold border-b border-gray-200">
-                  Chi siamo
-                </a>
-              </div>
-              
               <div className="mb-6 sm:mb-8">
                 <h3 className="text-[#21525f] text-base sm:text-lg font-semibold mb-3 sm:mb-4 pb-2 border-b border-gray-200">Servizi</h3>
                 <div className="space-y-1 sm:space-y-2 pl-3 sm:pl-4">
-                  <a href="#caldaie" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base">
+                  <button 
+                    onClick={() => handleServiceMenuClick('caldaie')}
+                    className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
+                  >
                     Caldaie
-                  </a>
-                  <a href="#pompe-calore" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base">
+                  </button>
+                  <button 
+                    onClick={() => handleServiceMenuClick('pompe')}
+                    className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
+                  >
                     Pompe di calore
-                  </a>
-                  <a href="#serramenti" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base">
+                  </button>
+                  <button 
+                    onClick={() => handleServiceMenuClick('infissi')}
+                    className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
+                  >
                     Serramenti
-                  </a>
-                  <a href="#fotovoltaico" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base">
+                  </button>
+                  <button 
+                    onClick={() => handleServiceMenuClick('fotovoltaico')}
+                    className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
+                  >
                     Fotovoltaico
-                  </a>
-                  <a href="#climatizzatori" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base">
+                  </button>
+                  <button 
+                    onClick={() => handleServiceMenuClick('climatizzatori')}
+                    className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
+                  >
                     Climatizzatori
-                  </a>
-                  <a href="#coibentazione" className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base">
+                  </button>
+                  <button 
+                    onClick={() => handleServiceMenuClick('pareti')}
+                    className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
+                  >
                     Coibentazione
-                  </a>
+                  </button>
                 </div>
               </div>
               
               <div>
-                <a href="#contatti" className="block text-[#21525f] hover:text-[#77a655] transition-colors duration-300 py-2 sm:py-3 text-base sm:text-lg font-semibold border-b border-gray-200">
+                <button 
+                  onClick={handleContactsMenuClick}
+                  className="block text-[#21525f] hover:text-[#77a655] transition-colors duration-300 py-2 sm:py-3 text-base sm:text-lg font-semibold border-b border-gray-200 text-left w-full"
+                >
                   Contatti
-                </a>
+                </button>
               </div>
             </nav>
           </div>
@@ -299,7 +353,7 @@ export default function Home() {
       </div>
       
       {/* Cosa Offriamo Section - Modern Design */}
-      <div className="bg-gradient-to-b from-[#edf3ec] to-[#e5ebe3]">
+      <div className="bg-gradient-to-b from-[#edf3ec] to-[#e5ebe3]" data-section="services">
         {/* Header */}
         <div className="container mx-auto px-4 pt-12 sm:pt-16 pb-6 sm:pb-8">
           <div className="flex items-center justify-center mb-8 sm:mb-12">
