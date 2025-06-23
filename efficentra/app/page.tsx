@@ -1057,8 +1057,8 @@ export default function Home() {
             <div className="flex flex-col items-center md:items-start">
               <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-[#77a655]">Orari di apertura</h4>
               <div className="space-y-1 sm:space-y-2 text-center md:text-left">
-                <p className="text-gray-300 text-sm sm:text-base">Lun - Ven: 9:00 - 18:00</p>
-                <p className="text-gray-300 text-sm sm:text-base">Sab - Dom: Chiuso</p>
+                <p className="text-sm sm:text-base">Lun - Ven: 9:00 - 18:00</p>
+                <p className="text-sm sm:text-base">Sab - Dom: Chiuso</p>
               </div>
             </div>
           </div>
