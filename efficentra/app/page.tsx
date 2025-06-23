@@ -315,6 +315,18 @@ export default function Home() {
                     Caldaie
                   </button>
                   <button 
+                    onClick={() => handleServiceMenuClick('climatizzatori')}
+                    className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
+                  >
+                    Climatizzatori
+                  </button>
+                  <button 
+                    onClick={() => handleServiceMenuClick('fotovoltaico')}
+                    className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
+                  >
+                    Impianto fotovoltaico
+                  </button>
+                  <button 
                     onClick={() => handleServiceMenuClick('pompe')}
                     className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
                   >
@@ -325,18 +337,6 @@ export default function Home() {
                     className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
                   >
                     Serramenti
-                  </button>
-                  <button 
-                    onClick={() => handleServiceMenuClick('fotovoltaico')}
-                    className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
-                  >
-                    Fotovoltaico
-                  </button>
-                  <button 
-                    onClick={() => handleServiceMenuClick('climatizzatori')}
-                    className="block text-gray-600 hover:text-[#77a655] transition-colors duration-300 py-1.5 sm:py-2 text-sm sm:text-base text-left w-full"
-                  >
-                    Climatizzatori
                   </button>
                   <button 
                     onClick={() => handleServiceMenuClick('pareti')}
@@ -1044,7 +1044,7 @@ export default function Home() {
             {/* Orari di apertura */}
             <div className="flex flex-col items-center md:items-start">
               <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-[#77a655]">Orari di apertura</h4>
-              <div className="space-y-1 sm:space-y-2">
+              <div className="space-y-1 sm:space-y-2 text-center md:text-left">
                 <p className="text-gray-300 text-sm sm:text-base">Lun - Ven: 9:00 - 18:00</p>
                 <p className="text-gray-300 text-sm sm:text-base">Sab - Dom: Chiuso</p>
               </div>
