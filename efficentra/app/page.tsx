@@ -1075,7 +1075,7 @@ export default function Home() {
           }}
         >
           <div 
-            className="bg-white w-[95vw] sm:w-full max-w-none sm:max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto rounded-lg relative shadow-2xl"
+            className=" w-[95vw] sm:w-full max-w-none sm:max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto rounded-lg relative shadow-2xl"
             style={{ filter: 'none' }}
             onClick={(e) => e.stopPropagation()}
           >
