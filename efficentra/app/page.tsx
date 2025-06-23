@@ -1104,7 +1104,7 @@ export default function Home() {
             </div>
             
             {/* Sezione 2: Immagine */}
-            <div className="relative h-32 sm:h-56 md:h-64">
+            <div className="relative h-32 sm:h-56 md:h-82">
               <Image
                 src={cardData[selectedCard as keyof typeof cardData].image}
                 alt={cardData[selectedCard as keyof typeof cardData].title}
