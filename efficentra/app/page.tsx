@@ -2,6 +2,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 // Dati delle card per la dialog
@@ -344,7 +345,16 @@ export default function Home() {
                   >
                     Coibentazione
                   </button>
-                </div>
+                </div>              </div>
+              
+              <div>
+                <Link 
+                  href="/promozione"
+                  className="block text-[#21525f] hover:text-[#77a655] transition-colors duration-300 py-2 sm:py-3 text-base sm:text-lg font-semibold border-b border-gray-200 text-left w-full"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  🎯 Promozione Speciale
+                </Link>
               </div>
               
               <div>
@@ -357,15 +367,14 @@ export default function Home() {
               </div>
             </nav>
           </div>
-        </div>
-
-        <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
-          <div className="flex flex-col items-center text-center">
-            <div className="flex items-center justify-center mb-3 sm:mb-4 drop-shadow-lg">
-              <Image src="/IconCasa.JPG" alt="Efficentra Icon" width={60} height={60} className="mr-3 sm:mr-4 shadow-md" />
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-lg">Efficentra</h1>
-            </div>
-            <p className="text-base sm:text-xl md:text-2xl font-light drop-shadow px-2">Risparmia sui consumi, investi sulla casa</p>
+        </div>        <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center text-center">            <Image 
+              src="/CEO_Efficentra_logo-02.svg" 
+              alt="Efficentra - Risparmia sui consumi, investi sulla casa" 
+              width={400} 
+              height={200} 
+              className="drop-shadow-lg max-w-[90%] sm:max-w-[80%] md:max-w-[400px] h-auto"
+            />
           </div>
         </div>
       </div>
@@ -1004,11 +1013,14 @@ export default function Home() {
       <footer className="bg-[#21525f] text-white">
         <div className="container mx-auto px-4 py-8 sm:py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {/* Logo e info azienda */}
-            <div className="flex flex-col items-center md:items-start">
-              <div className="flex items-center mb-3 sm:mb-4">
-                <Image src="/IconCasa.JPG" alt="Efficentra Icon" width={40} height={40} className="mr-2 sm:mr-3 shadow-md" />
-                <h3 className="text-2xl sm:text-3xl font-bold">Efficentra</h3>
+            {/* Logo e info azienda */}            <div className="flex flex-col items-center md:items-start">
+              <div className="flex items-center mb-3 sm:mb-4">                <Image 
+                  src="/CEO_Efficentra_logo-01.svg" 
+                  alt="Efficentra" 
+                  width={156} 
+                  height={78} 
+                  className="h-auto"
+                />
               </div>
               <p className="text-gray-300 text-center md:text-left text-sm sm:text-base">Il centro del risparmio per la tua casa</p>
             </div>
@@ -1080,22 +1092,21 @@ export default function Home() {
             onClick={(e) => e.stopPropagation()}
           >
             
-            {/* Sezione 1: Logo Efficentra - Stesso layout della pagina principale */}
-            <div className="bg-[#77a655] px-3 sm:px-6 py-3 sm:py-5 relative">
+            {/* Sezione 1: Logo Efficentra - Stesso layout della pagina principale */}            <div className="bg-[#77a655] px-3 sm:px-6 py-3 sm:py-5 relative">
               <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
-                <div className="flex flex-col items-center text-center">
-                  <div className="flex items-center justify-center mb-1 sm:mb-3 drop-shadow-lg">
-                    <Image src="/IconCasa.JPG" alt="Efficentra Icon" width={35} height={35} className="sm:w-[50px] sm:h-[50px] mr-2 sm:mr-3 shadow-md" />
-                    <h1 className="text-lg sm:text-3xl md:text-4xl font-bold drop-shadow-lg text-white">Efficentra</h1>
-                  </div>
-                  <p className="text-xs sm:text-lg md:text-xl font-light drop-shadow text-white">Risparmia sui consumi, investi sulla casa</p>
+                <div className="flex flex-col items-center text-center">                  <Image 
+                    src="/CEO_Efficentra_logo-02.svg" 
+                    alt="Efficentra - Risparmia sui consumi, investi sulla casa" 
+                    width={260} 
+                    height={130} 
+                    className="drop-shadow-lg h-auto max-w-[325px] sm:max-w-[390px]"
+                  />
                 </div>
               </div>
               
-              {/* Close Button */}
-              <button
+              {/* Close Button */}              <button
                 onClick={closeDialog}
-                className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:bg-white hover:bg-opacity-20 rounded-full p-1 transition-colors duration-200"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:bg-white hover:bg-opacity-20 rounded-full p-1 transition-colors duration-200 cursor-pointer"
               >
                 <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
