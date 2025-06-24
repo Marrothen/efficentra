@@ -43,8 +43,7 @@
             align-items: center;
             justify-content: center;
             flex: 1;
-        }
-        .divider-line {
+        }        .divider-line {
             width: 95%;
             height: 0.2vh;
             background-color: #0f8c10;
@@ -63,6 +62,28 @@
         }
         .divider-line::before { top: -0.15vh; }
         .divider-line::after { bottom: -0.15vh; }
+        
+        /* Allineamento con le linee divisorie */
+        .section-aligned {
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .first-section-aligned {
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        
+        .countdown-aligned {
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
         .pixel-text {
             display: flex;
             justify-content: center;
@@ -266,31 +287,27 @@
     </style>
 </head>
 <body>
-    <div class="main-container">        <!-- SEZIONE 1: Layout come nell'immagine con MANCANO tutto su una riga -->
+    <div class="main-container">        <!-- SEZIONE 1: Mancano X ANNI - Y MESI -->
         <div class="section">
-            <div class="first-section-display">
-                <div class="mancano-row">
-                    <div class="pixel-text" id="mancano-text"></div>
-                    <div class="number-with-label">
-                        <div class="numbers-row">
-                            <div class="pixel-text big-numbers" id="years"></div>
-                            <div class="pixel-text big-numbers" id="dash"></div>
-                            <div class="pixel-text big-numbers" id="months"></div>
-                        </div>
-                        <div class="labels-row">
-                            <div class="pixel-text small-text" id="anni-label"></div>
-                            <div class="dash-spacer"></div>
-                            <div class="pixel-text small-text" id="mesi-label"></div>
-                        </div>
-                    </div>
+            <div class="section-aligned">
+                <div class="pixel-text" id="mancano-text"></div>
+                <div class="number-with-label">
+                    <div class="pixel-text big-numbers" id="years"></div>
+                    <div class="pixel-text small-text" id="anni-label"></div>
                 </div>
-            </div>        </div>
+                <div class="pixel-text big-numbers" id="dash"></div>
+                <div class="number-with-label">
+                    <div class="pixel-text big-numbers" id="months"></div>
+                    <div class="pixel-text small-text" id="mesi-label"></div>
+                </div>
+            </div>
+        </div>
 
         <!-- Linea divisoria -->
         <div class="divider-line"></div>        <!-- SEZIONE 2: Countdown con numeri grandi -->
         <div class="section">
             <div class="time-display">
-                <div class="countdown-container">
+                <div class="countdown-aligned">
                     <div class="time-unit">
                         <div class="pixel-text big-numbers" id="days"></div>
                         <div class="pixel-text small-text mt-2" id="days-label"></div>
@@ -321,11 +338,11 @@
         </div>
 
         <!-- Linea divisoria -->
-        <div class="divider-line"></div>
-
-        <!-- SEZIONE 3: Sei ancora in tempo? -->
+        <div class="divider-line"></div>        <!-- SEZIONE 3: Sei ancora in tempo? -->
         <div class="section">
-            <div class="pixel-text" id="tempo-text"></div>
+            <div class="section-aligned">
+                <div class="pixel-text" id="tempo-text"></div>
+            </div>
         </div>
     </div>
 
