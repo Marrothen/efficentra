@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Pixellato</title>
-    <style>
-        body {
+    <style>        body {
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #000;
             color: #0f8c10;
             font-family: 'Courier New', monospace;
@@ -16,18 +15,15 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            width: 100vw;
             overflow-x: auto;
             overflow-y: auto;
-        }
-
-        .main-container {
+        }.main-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
+            padding: 40px;
         }
 
         .section {
@@ -36,6 +32,37 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        .divider-line {
+            width: 80%;
+            height: 3px;
+            background-color: #0f8c10;
+            box-shadow: 0 0 10px #0f8c10;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .divider-line::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #0f8c10;
+            box-shadow: 0 0 5px #0f8c10;
+        }
+
+        .divider-line::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #0f8c10;
+            box-shadow: 0 0 5px #0f8c10;
         }
 
         .pixel-text {
@@ -184,9 +211,10 @@
                 width: 10px;
                 height: 10px;
             }
-        }
-
-        @media (max-width: 768px) {
+        }        @media (max-width: 768px) {
+            .main-container {
+                padding: 20px;
+            }
             .pixel-letter {
                 grid-template-columns: repeat(8, 4px);
                 grid-template-rows: repeat(12, 4px);
@@ -242,8 +270,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>        </div>
+
+        <!-- Linea divisoria -->
+        <div class="divider-line"></div>
 
         <!-- SEZIONE 2: Countdown con numeri grandi -->
         <div class="section">
@@ -273,8 +303,10 @@
                     <div class="pixel-text big-numbers" id="seconds"></div>
                     <div class="pixel-text small-text" id="seconds-label"></div>
                 </div>
-            </div>
-        </div>
+            </div>        </div>
+
+        <!-- Linea divisoria -->
+        <div class="divider-line"></div>
 
         <!-- SEZIONE 3: Sei ancora in tempo? -->
         <div class="section">
