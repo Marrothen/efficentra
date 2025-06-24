@@ -111,10 +111,10 @@
             position: relative;
             min-width: 200px;
             height: 280px;
-        }.pixel-digit {
+        }        .pixel-digit {
             display: grid;
-            grid-template-columns: repeat(10, 16px);
-            grid-template-rows: repeat(15, 16px);
+            grid-template-columns: repeat(8, 16px);
+            grid-template-rows: repeat(12, 16px);
             gap: 2px;
             margin: 0 12px;
         }
@@ -200,8 +200,8 @@
             text-shadow: 2px 2px 0 #004400;
         }        @media (max-width: 1200px) {
             .pixel-digit {
-                grid-template-columns: repeat(10, 12px);
-                grid-template-rows: repeat(15, 12px);
+                grid-template-columns: repeat(8, 12px);
+                grid-template-rows: repeat(12, 12px);
             }
             .pixel {
                 width: 12px;
@@ -215,8 +215,8 @@
 
         @media (max-width: 768px) {
             .pixel-digit {
-                grid-template-columns: repeat(10, 8px);
-                grid-template-rows: repeat(15, 8px);
+                grid-template-columns: repeat(8, 8px);
+                grid-template-rows: repeat(12, 8px);
                 gap: 1px;
             }
             .pixel {
@@ -248,55 +248,97 @@
                 font-size: 60px;
             }
         }
+
+        .first-section-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }        .mancano-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .number-with-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }.dash .letter-pixel.on {
+            background-color: #0f8c10;
+            box-shadow: 0 0 8px #0f8c10;
+        }
+
+        .big-numbers .pixel-letter {
+            grid-template-columns: repeat(8, 12px);
+            grid-template-rows: repeat(12, 12px);
+            gap: 2px;
+            margin: 0 4px;
+        }
+
+        .big-numbers .letter-pixel {
+            width: 12px;
+            height: 12px;
+        }
+
+        .big-numbers .letter-pixel.on {
+            background-color: #0f8c10;
+            box-shadow: 0 0 12px #0f8c10;
+        }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <!-- SEZIONE 1: Countdown principale -->
+    <div class="main-container">        <!-- SEZIONE 1: Layout come nell'immagine con MANCANO tutto su una riga -->
         <div class="section">
-            <div class="pixel-text" id="mancano-text"></div>
-            
-            <div class="time-display">
-                <div class="time-unit">
-                    <div class="time-number" id="days"></div>
-                    <div class="time-label">GIORNI</div>
-                </div>
-                
-                <div class="colon">:</div>
-                
-                <div class="time-unit">
-                    <div class="time-number" id="hours"></div>
-                    <div class="time-label">ORE</div>
-                </div>
-                
-                <div class="colon">:</div>
-                
-                <div class="time-unit">
-                    <div class="time-number" id="minutes"></div>
-                    <div class="time-label">MINUTI</div>
-                </div>
-                
-                <div class="colon">:</div>
-                
-                <div class="time-unit">
-                    <div class="time-number" id="seconds"></div>
-                    <div class="time-label">SECONDI</div>
+            <div class="first-section-display">
+                <div class="mancano-row">
+                    <div class="pixel-text" id="mancano-text"></div>
+                    <div class="number-with-label">
+                        <div class="pixel-text big-numbers" id="years"></div>
+                        <div class="pixel-text" id="anni-label"></div>
+                    </div>
+                    <div class="pixel-text" id="dash"></div>
+                    <div class="number-with-label">
+                        <div class="pixel-text big-numbers" id="months"></div>
+                        <div class="pixel-text" id="mesi-label"></div>
+                    </div>
                 </div>
             </div>
-            
+        </div><!-- SEZIONE 2: Countdown con numeri grandi -->
+        <div class="section">
+            <div class="time-display">
+                <div class="time-unit">
+                    <div class="pixel-text" id="days"></div>
+                    <div class="pixel-text" id="days-label"></div>
+                </div>
+                
+                <div class="colon">:</div>
+                
+                <div class="time-unit">
+                    <div class="pixel-text" id="hours"></div>
+                    <div class="pixel-text" id="hours-label"></div>
+                </div>
+                
+                <div class="colon">:</div>
+                
+                <div class="time-unit">
+                    <div class="pixel-text" id="minutes"></div>
+                    <div class="pixel-text" id="minutes-label"></div>
+                </div>
+                
+                <div class="colon">:</div>
+                
+                <div class="time-unit">
+                    <div class="pixel-text" id="seconds"></div>
+                    <div class="pixel-text" id="seconds-label"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEZIONE 3: Sei ancora in tempo? -->
+        <div class="section">
             <div class="pixel-text" id="tempo-text"></div>
-        </div>
-
-        <!-- SEZIONE 2: Placeholder -->
-        <div class="section">
-            <div class="section-title">SEZIONE 2</div>
-            <div style="color: #0f8c10; font-size: 18px;">Contenuto della seconda sezione</div>
-        </div>
-
-        <!-- SEZIONE 3: Placeholder -->
-        <div class="section">
-            <div class="section-title">SEZIONE 3</div>
-            <div style="color: #0f8c10; font-size: 18px;">Contenuto della terza sezione</div>
         </div>
     </div>    <script>
         // Pattern per le lettere pixellate (8x12 grid)
@@ -496,182 +538,402 @@
                 [0,0,0,1,1,0,0,0],
                 [0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0]
-            ]
-        };
-
-        // Pattern per i numeri pixellati (10x15 grid) - maggiore dettaglio
-        const digitPatterns = {
+            ],
+            'D': [
+                [1,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            'F': [
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,1,1,1,1,0,0],
+                [1,1,1,1,1,1,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            'R': [
+                [1,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,0,0],
+                [1,1,0,1,1,0,0,0],
+                [1,1,0,0,1,1,0,0],
+                [1,1,0,0,0,1,1,0],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [0,0,0,0,0,0,0,0]
+            ],
+            'Z': [
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,1,1,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,1,1,0,0,0,0],
+                [0,1,1,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,0,0]
+            ],
+            'L': [
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,0,0]
+            ],
+            'G': [
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            'U': [
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            'V': [
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [0,1,1,0,0,1,1,0],
+                [0,1,1,0,0,1,1,0],
+                [0,0,1,1,1,1,0,0],
+                [0,0,1,1,1,1,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,0,0,0,0,0]
+            ],
             '0': [
-                [0,0,1,1,1,1,1,1,0,0],
-                [0,1,1,1,1,1,1,1,1,0],
-                [1,1,1,0,0,0,0,1,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,1,0,0,0,0,1,1,1],
-                [0,1,1,1,1,1,1,1,1,0],
-                [0,0,1,1,1,1,1,1,0,0]
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
             ],
             '1': [
-                [0,0,0,0,1,1,0,0,0,0],
-                [0,0,0,1,1,1,0,0,0,0],
-                [0,0,1,1,1,1,0,0,0,0],
-                [0,1,1,1,1,1,0,0,0,0],
-                [1,1,1,0,1,1,0,0,0,0],
-                [0,0,0,0,1,1,0,0,0,0],
-                [0,0,0,0,1,1,0,0,0,0],
-                [0,0,0,0,1,1,0,0,0,0],
-                [0,0,0,0,1,1,0,0,0,0],
-                [0,0,0,0,1,1,0,0,0,0],
-                [0,0,0,0,1,1,0,0,0,0],
-                [0,0,0,0,1,1,0,0,0,0],
-                [0,0,0,0,1,1,0,0,0,0],
-                [1,1,1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1,1,1]
-            ],            '2': [
-                [0,1,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,1,1,0],
-                [0,0,0,0,1,1,1,0,0],
-                [0,0,1,1,1,0,0,0,0],
-                [0,1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1,1]
+                [0,0,0,1,1,0,0,0],
+                [0,0,1,1,1,0,0,0],
+                [0,1,1,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,0,0]
+            ],
+            '2': [
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [0,0,0,0,0,0,1,1],
+                [0,0,0,0,0,1,1,1],
+                [0,0,0,0,1,1,1,0],
+                [0,0,0,1,1,1,0,0],
+                [0,0,1,1,1,0,0,0],
+                [0,1,1,1,0,0,0,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,0,0]
             ],
             '3': [
-                [0,0,1,1,1,1,1,1,0,0],
-                [0,1,1,1,1,1,1,1,1,0],
-                [1,1,1,0,0,0,0,1,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,0,1,1,1],
-                [0,0,0,1,1,1,1,1,1,0],
-                [0,0,0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,1,1,1],
-                [0,0,0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,1,0,0,0,0,1,1,1],
-                [0,1,1,1,1,1,1,1,1,0],
-                [0,0,1,1,1,1,1,1,0,0]
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [0,0,0,0,0,0,1,1],
+                [0,0,1,1,1,1,1,0],
+                [0,0,1,1,1,1,1,0],
+                [0,0,0,0,0,0,1,1],
+                [0,0,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
             ],
             '4': [
-                [0,0,0,0,0,0,1,1,0,0],
-                [0,0,0,0,0,1,1,1,0,0],
-                [0,0,0,0,1,1,1,1,0,0],
-                [0,0,0,1,1,0,1,1,0,0],
-                [0,0,1,1,0,0,1,1,0,0],
-                [0,1,1,0,0,0,1,1,0,0],
-                [1,1,0,0,0,0,1,1,0,0],
-                [1,1,0,0,0,0,1,1,0,0],
-                [1,1,1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,1,1,0,0],
-                [0,0,0,0,0,0,1,1,0,0],
-                [0,0,0,0,0,0,1,1,0,0],
-                [0,0,0,0,0,0,1,1,0,0],
-                [0,0,0,0,0,0,1,1,0,0]
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,1,1,1,0],
+                [0,0,0,1,1,1,1,0],
+                [0,0,1,1,0,1,1,0],
+                [0,1,1,0,0,1,1,0],
+                [1,1,0,0,0,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,0,0,0,0]
             ],
             '5': [
-                [1,1,1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0,0,0],
-                [1,1,1,1,1,1,1,1,0,0],
-                [1,1,1,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,1,1,1],
-                [0,0,0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,1,0,0,0,0,1,1,1],
-                [0,1,1,1,1,1,1,1,1,0],
-                [0,0,1,1,1,1,1,1,0,0]
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,1,1],
+                [0,0,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
             ],
             '6': [
-                [0,0,1,1,1,1,1,1,0,0],
-                [0,1,1,1,1,1,1,1,1,0],
-                [1,1,1,0,0,0,0,1,1,1],
-                [1,1,0,0,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0,0,0],
-                [1,1,1,1,1,1,1,1,0,0],
-                [1,1,1,1,1,1,1,1,1,0],
-                [1,1,0,0,0,0,0,1,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,1,0,0,0,0,1,1,1],
-                [0,1,1,1,1,1,1,1,1,0],
-                [0,0,1,1,1,1,1,1,0,0]
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,0,0],
+                [1,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
             ],
             '7': [
-                [1,1,1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,0,1,1,0],
-                [0,0,0,0,0,0,0,1,1,0],
-                [0,0,0,0,0,0,1,1,0,0],
-                [0,0,0,0,0,0,1,1,0,0],
-                [0,0,0,0,0,1,1,0,0,0],
-                [0,0,0,0,0,1,1,0,0,0],
-                [0,0,0,0,1,1,0,0,0,0],
-                [0,0,0,0,1,1,0,0,0,0],
-                [0,0,0,1,1,0,0,0,0,0],
-                [0,0,0,1,1,0,0,0,0,0],
-                [0,0,1,1,0,0,0,0,0,0],
-                [0,0,1,1,0,0,0,0,0,0]
-            ],            '8': [
-                [0,1,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,1,1],
-                [1,1,1,0,0,0,1,1,1],
-                [0,1,1,1,1,1,1,1,0],
-                [0,1,1,1,1,1,1,1,0],
-                [1,1,1,0,0,0,1,1,1],
-                [1,1,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,1,1],
-                [1,1,1,0,0,0,1,1,1],
-                [1,1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,1,0]
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,1,1],
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,1,1,0,0],
+                [0,0,0,0,1,1,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,1,1,0,0,0,0],
+                [0,0,1,1,0,0,0,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            '8': [
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
             ],
             '9': [
-                [0,0,1,1,1,1,1,1,0,0],
-                [0,1,1,1,1,1,1,1,1,0],
-                [1,1,1,0,0,0,0,1,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0,1,1],
-                [1,1,1,0,0,0,0,1,1,1],
-                [0,1,1,1,1,1,1,1,1,1],
-                [0,0,1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,0,0,1,1],
-                [1,1,1,0,0,0,0,1,1,1],
-                [0,1,1,1,1,1,1,1,1,0],
-                [0,0,1,1,1,1,1,1,0,0]
-            ]
-        };
-
-        function createPixelLetter(letter) {
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            // ...existing letters...
+        };        // Pattern per i numeri pixellati (8x12 grid - stesso formato delle lettere)
+        const digitPatterns = {
+            '0': [
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
+            ],            '1': [
+                [0,0,0,1,1,0,0,0],
+                [0,0,1,1,1,0,0,0],
+                [0,1,1,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,0,0]
+            ],            '2': [
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [0,0,0,0,0,0,1,1],
+                [0,0,0,0,0,1,1,1],
+                [0,0,0,0,1,1,1,0],
+                [0,0,0,1,1,1,0,0],
+                [0,0,1,1,1,0,0,0],
+                [0,1,1,1,0,0,0,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,0,0]
+            ],
+            '3': [
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [0,0,0,0,0,0,1,1],
+                [0,0,1,1,1,1,1,0],
+                [0,0,1,1,1,1,1,0],
+                [0,0,0,0,0,0,1,1],
+                [0,0,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            '4': [
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,1,1,1,0],
+                [0,0,0,1,1,1,1,0],
+                [0,0,1,1,0,1,1,0],
+                [0,1,1,0,0,1,1,0],
+                [1,1,0,0,0,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            '5': [
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,1,1],
+                [0,0,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            '6': [
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,0,0],
+                [1,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            '7': [
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,1,1],
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,0,1,1,0],
+                [0,0,0,0,1,1,0,0],
+                [0,0,0,0,1,1,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,1,1,0,0,0,0],
+                [0,0,1,1,0,0,0,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            '8': [
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            '9': [
+                [0,1,1,1,1,1,1,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,1,1],
+                [1,1,0,0,0,0,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,0,0,0,0,0,0,0]
+            ],
+            // ...existing letters...
+        };        function createPixelLetter(letter) {
             const letterDiv = document.createElement('div');
             letterDiv.className = 'pixel-letter';
             
@@ -695,16 +957,18 @@
             for (let i = 0; i < text.length; i++) {
                 container.appendChild(createPixelLetter(text[i]));
             }
-        }
-
-        function createPixelDigit(digit) {
+        }        function createPixelDigit(digit, useForFirstSection = false) {
             const digitDiv = document.createElement('div');
             digitDiv.className = 'pixel-digit';
             
-            const pattern = digitPatterns[digit] || digitPatterns['0'];
+            // Per la prima sezione usa i pattern originali più leggibili dai digitPatterns
+            // Per la seconda sezione usa i letterPatterns
+            const pattern = useForFirstSection ? 
+                (digitPatterns[digit] || digitPatterns['0']) : 
+                (letterPatterns[digit] || letterPatterns['0']);
             
-            for (let row = 0; row < 15; row++) {
-                for (let col = 0; col < 10; col++) {
+            for (let row = 0; row < 12; row++) {
+                for (let col = 0; col < 8; col++) {
                     const pixel = document.createElement('div');
                     pixel.className = pattern[row][col] ? 'pixel on' : 'pixel';
                     digitDiv.appendChild(pixel);
@@ -712,20 +976,16 @@
             }
             
             return digitDiv;
-        }
-
-        function updatePixelNumber(containerId, value) {
+        }        function updatePixelNumber(containerId, value, useForFirstSection = false) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
             
             const digits = String(value).padStart(2, '0');
             for (let i = 0; i < digits.length; i++) {
-                container.appendChild(createPixelDigit(digits[i]));
+                container.appendChild(createPixelDigit(digits[i], useForFirstSection));
             }
-        }
-
-        // Data target del countdown (modificabile)
-        const targetDate = new Date('2026-06-24T23:59:59').getTime();        function updateCountdown() {
+        }// Data target del countdown
+        const targetDate = new Date('January 1, 2030 00:00:00').getTime();        function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
 
@@ -733,28 +993,51 @@
                 document.querySelector('.section').innerHTML = 
                     '<div class="section-title">TEMPO SCADUTO!</div>';
                 return;
+            }            // SEZIONE 1: Calcolo anni e mesi mancanti (dinamico da oggi)
+            const nowDate = new Date();
+            const target = new Date(2030, 0, 1); // 1° gennaio 2030
+            
+            let years = target.getFullYear() - nowDate.getFullYear();
+            let months = target.getMonth() - nowDate.getMonth();
+            
+            if (months < 0) {
+                years--;
+                months += 12;
             }
+            
+            // Se siamo oltre il giorno target nel mese corrente, sottrai un mese
+            if (nowDate.getDate() > target.getDate()) {
+                months--;
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+            }            // Layout della prima sezione come nell'immagine
+            createPixelText('MANCANO:', 'mancano-text');
+            createBigPixelText(String(years).padStart(2, '0'), 'years'); // Numeri grandi
+            createPixelText('-', 'dash'); // Trattino in pixel art
+            createBigPixelText(String(months).padStart(2, '0'), 'months'); // Numeri grandi
+            createPixelText('ANNI', 'anni-label');
+            createPixelText('MESI', 'mesi-label');
 
-            // Calcoli per anni, mesi, giorni, ore, minuti, secondi
-            const years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
-            const months = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-            const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            // SEZIONE 2: Calcolo countdown preciso per i numeri grandi
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Crea il testo pixellato per "MANCANO"
-            const mancanoText = `MANCANO: ${years} ANNI ${months} MESI`;
-            createPixelText(mancanoText, 'mancano-text');
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);            // Aggiorna i numeri pixellati per il countdown (usando createPixelText)
+            createPixelText(String(days).padStart(2, '0'), 'days');
+            createPixelText(String(hours).padStart(2, '0'), 'hours');
+            createPixelText(String(minutes).padStart(2, '0'), 'minutes');
+            createPixelText(String(seconds).padStart(2, '0'), 'seconds');
             
-            // Crea il testo pixellato per "SEI ANCORA IN TEMPO?"
+            // Aggiorna etichette in pixel art per la seconda sezione
+            createPixelText('GIORNI', 'days-label');
+            createPixelText('ORE', 'hours-label');
+            createPixelText('MINUTI', 'minutes-label');
+            createPixelText('SECONDI', 'seconds-label');
+            
+            // SEZIONE 3: Testo esattamente come nell'immagine
             createPixelText('SEI ANCORA IN TEMPO?', 'tempo-text');
-            
-            // Aggiorna i numeri pixellati
-            updatePixelNumber('days', days);
-            updatePixelNumber('hours', hours);
-            updatePixelNumber('minutes', minutes);
-            updatePixelNumber('seconds', seconds);
         }
 
         // Aggiorna il countdown ogni secondo
@@ -808,6 +1091,16 @@
         }
 
         setInterval(createParticles, 4000);
+
+        function createBigPixelText(text, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            container.classList.add('big-numbers');
+            
+            for (let i = 0; i < text.length; i++) {
+                container.appendChild(createPixelLetter(text[i]));
+            }
+        }
     </script>
 </body>
 </html>
