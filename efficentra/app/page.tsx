@@ -2,7 +2,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 // Dati delle card per la dialog
@@ -348,16 +347,6 @@ export default function Home() {
                 </div>              </div>
               
               <div>
-                <Link 
-                  href="/promozione"
-                  className="block text-[#21525f] hover:text-[#77a655] transition-colors duration-300 py-2 sm:py-3 text-base sm:text-lg font-semibold border-b border-gray-200 text-left w-full"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  🎯 Promozione Speciale
-                </Link>
-              </div>
-              
-              <div>
                 <button 
                   onClick={handleContactsMenuClick}
                   className="block text-[#21525f] hover:text-[#77a655] transition-colors duration-300 py-2 sm:py-3 text-base sm:text-lg font-semibold border-b border-gray-200 text-left w-full"
@@ -368,7 +357,7 @@ export default function Home() {
             </nav>
           </div>
         </div>        <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
-          <div className="flex flex-col items-center text-center">            <Image 
+          <div className="flex flex-col items-center text-center mt-4 mb-4 md:mt-0 md:mb-0">            <Image 
               src="/CEO_Efficentra_logo-02.svg" 
               alt="Efficentra - Risparmia sui consumi, investi sulla casa" 
               width={400} 
