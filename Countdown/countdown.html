@@ -35,15 +35,15 @@
             justify-content: center;
             box-sizing: border-box;
             overflow: hidden;
-        }
-        .section {
+        }        .section {
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             flex: 1;
-        }        .divider-line {
+            margin: 2vh 0;
+        }.divider-line {
             width: 95%;
             height: 0.2vh;
             background-color: #0f8c10;
@@ -62,20 +62,27 @@
         }
         .divider-line::before { top: -0.15vh; }
         .divider-line::after { bottom: -0.15vh; }
-        
-        /* Allineamento con le linee divisorie */
-        .section-aligned {
+          /* Allineamento con le linee divisorie */        .section-aligned {
             width: 95%;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
-        .first-section-aligned {
-            width: 95%;
+        .section-aligned .pixel-text {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0;
+            width: 100%;
+        }/* Allineamento specifico per la prima sezione */
+        .first-section-aligned {
+            width: 95%;
+            display: grid;
+            grid-template-columns: auto 1fr auto 1fr auto;
+            align-items: center;
+            gap: 1.5vw;
         }
         
         .countdown-aligned {
@@ -120,20 +127,19 @@
         }        .big-numbers .letter-pixel.on {
             background-color: #0f8c10;
             box-shadow: 0 0 0.3vw #0f8c10;
-        }
-        .colon-small .pixel-letter {
-            grid-template-columns: repeat(5, 0.4vw);
-            grid-template-rows: repeat(7, 0.4vw);
-            gap: 0.08vw;
-            margin: 0 0.1vw;
+        }        .colon-small .pixel-letter {
+            grid-template-columns: repeat(5, 0.7vw);
+            grid-template-rows: repeat(7, 0.7vw);
+            gap: 0.14vw;
+            margin: 0 0.15vw;
         }
         .colon-small .letter-pixel {
-            width: 0.4vw;
-            height: 0.4vw;
+            width: 0.7vw;
+            height: 0.7vw;
         }
         .colon-small .letter-pixel.on {
             background-color: #0f8c10;
-            box-shadow: 0 0 0.2vw #0f8c10;
+            box-shadow: 0 0 0.3vw #0f8c10;
         }
         .small-text .pixel-letter {
             grid-template-columns: repeat(5, 0.3vw);
@@ -177,7 +183,7 @@
             justify-content: flex-start;
             height: auto;
             transform: translateY(20%);
-            gap: 15.44vh;
+            gap: 12vh;
         }
         .colon-spacer {
             height: 0;
@@ -289,16 +295,17 @@
 <body>
     <div class="main-container">        <!-- SEZIONE 1: Mancano X ANNI - Y MESI -->
         <div class="section">
-            <div class="section-aligned">
+            <div class="first-section-aligned">
                 <div class="pixel-text" id="mancano-text"></div>
+                <div></div> <!-- spacer -->
                 <div class="number-with-label">
                     <div class="pixel-text big-numbers" id="years"></div>
-                    <div class="pixel-text small-text" id="anni-label"></div>
+                    <div class="pixel-text small-text mt-2" id="anni-label"></div>
                 </div>
-                <div class="pixel-text big-numbers" id="dash"></div>
+                <div class="pixel-text big-numbers" id="dash" style="justify-self: center;"></div>
                 <div class="number-with-label">
                     <div class="pixel-text big-numbers" id="months"></div>
-                    <div class="pixel-text small-text" id="mesi-label"></div>
+                    <div class="pixel-text small-text mt-2" id="mesi-label"></div>
                 </div>
             </div>
         </div>
@@ -815,6 +822,39 @@
             }
         }
 
+        // Funzione per creare testo pixelato con spaziatura distribuita
+        function createPixelTextSpaced(text, container) {
+            container.innerHTML = '';
+            const words = text.split(' ');
+            
+            words.forEach((word, wordIndex) => {
+                const wordDiv = document.createElement('div');
+                wordDiv.style.display = 'flex';
+                wordDiv.style.gap = '0.7vw';
+                
+                for (let i = 0; i < word.length; i++) {
+                    const char = word[i];
+                    const pattern = letterPatterns[char] || letterPatterns[char.toUpperCase()] || letterPatterns[' '];
+                    
+                    const letterDiv = document.createElement('div');
+                    letterDiv.className = 'pixel-letter';
+                    for (let row = 0; row < 7; row++) {
+                        for (let col = 0; col < 5; col++) {
+                            const pixel = document.createElement('div');
+                            pixel.className = 'letter-pixel';
+                            if (pattern[row][col] === 1) {
+                                pixel.classList.add('on');
+                            }
+                            letterDiv.appendChild(pixel);
+                        }
+                    }
+                    wordDiv.appendChild(letterDiv);
+                }
+                
+                container.appendChild(wordDiv);
+            });
+        }
+
         // Funzione per calcolare la differenza in anni e mesi
         function calculateYearsMonths() {
             const now = new Date();
@@ -894,8 +934,8 @@
             createPixelText('', document.getElementById('colon3-bottom'));
             
             createPixelText(seconds.toString().padStart(2, '0'), document.getElementById('seconds'));
-            createPixelText('SECONDI', document.getElementById('seconds-label'));              // Terza sezione: Sei ancora in tempo?
-            createPixelTextPascalCase('Sei ancora in tempo?', document.getElementById('tempo-text'));
+            createPixelText('SECONDI', document.getElementById('seconds-label'));            // Terza sezione: Sei ancora in tempo?
+            createPixelTextSpaced('Sei ancora in tempo?', document.getElementById('tempo-text'));
         }
 
         // Avvia il countdown
