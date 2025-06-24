@@ -35,10 +35,11 @@ export const metadata: Metadata = {
     siteName: 'Efficentra',
     images: [
       {
-        url: '/logo.JPG',
+        url: 'https://efficentra.it/logo.JPG',
         width: 742,
         height: 608,
         alt: 'Efficentra - Risparmia sui consumi, investi sulla casa',
+        type: 'image/jpeg',
       },
     ],
     locale: 'it_IT',
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Efficentra - Il centro del risparmio per la tua casa",
     description: "Soluzioni per il risparmio energetico: caldaie, climatizzatori, fotovoltaico, pompe di calore, serramenti e coibentazione.",
-    images: ['/logo.JPG'],
+    images: ['https://efficentra.it/logo.JPG'],
   },
   robots: {
     index: true,
