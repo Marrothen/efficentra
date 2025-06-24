@@ -1006,8 +1006,8 @@ export default function Home() {
               <div className="flex items-center mb-3 sm:mb-4">                <Image 
                   src="/CEO_Efficentra_logo-01.svg" 
                   alt="Efficentra" 
-                  width={156} 
-                  height={78} 
+                  width={280} 
+                  height={140} 
                   className="h-auto"
                 />
               </div>
