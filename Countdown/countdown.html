@@ -4,306 +4,262 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Pixellato</title>
-    <style>        body {
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: #0f8c10;
-            font-family: 'Courier New', monospace;
+            background: #000;
+            overflow: hidden;
+        }
+        body {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             width: 100vw;
             overflow: hidden;
-            box-sizing: border-box;
         }
-
         .main-container {
+            width: 90vw;
+            height: 90vh;
+            max-width: 90vw;
+            max-height: 90vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            height: 100%;
-            padding: 2vh;
             box-sizing: border-box;
-            max-width: 100vw;
-        }        .section {
+            overflow: hidden;
+        }
+        .section {
             width: 100%;
-            margin-bottom: 2vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex: 1;
             justify-content: center;
+            flex: 1;
         }
-
         .divider-line {
-            width: 90%;
-            height: 2px;
+            width: 95%;
+            height: 0.2vh;
             background-color: #0f8c10;
-            box-shadow: 0 0 4px #0f8c10;
+            box-shadow: 0 0 0.3vh #0f8c10;
             margin: 1vh 0;
-        }
-
-        .divider-line {
-            width: 80%;
-            height: 3px;
-            background-color: #0f8c10;
-            box-shadow: 0 0 10px #0f8c10;
-            margin: 40px 0;
             position: relative;
         }
-
-        .divider-line::before {
+        .divider-line::before, .divider-line::after {
             content: '';
             position: absolute;
-            top: -1px;
             left: 0;
             right: 0;
-            height: 1px;
+            height: 0.1vh;
             background-color: #0f8c10;
-            box-shadow: 0 0 5px #0f8c10;
+            box-shadow: 0 0 0.1vh #0f8c10;
         }
-
-        .divider-line::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background-color: #0f8c10;
-            box-shadow: 0 0 5px #0f8c10;
-        }        .pixel-text {
+        .divider-line::before { top: -0.15vh; }
+        .divider-line::after { bottom: -0.15vh; }
+        .pixel-text {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 0.5vw;
-            margin-bottom: 1vh;
-        }        .pixel-letter {
+            gap: 0.7vw; /* aumentato per più spazio tra caratteri */
+            margin-bottom: 0.5vh;
+        }
+        .pixel-letter {
             display: grid;
-            grid-template-columns: repeat(8, 0.4vw);
-            grid-template-rows: repeat(12, 0.4vh);
-            gap: 0.5px;
-            margin: 0 0.2vw;
+            grid-template-columns: repeat(5, 0.5vw);
+            grid-template-rows: repeat(7, 0.5vw);
+            gap: 0.12vw;
+            margin: 0 0.25vw; /* aumentato per più spazio tra lettere */
         }
-
         .letter-pixel {
-            width: 0.4vw;
-            height: 0.4vh;
+            width: 0.5vw;
+            height: 0.5vw;
             background-color: transparent;
-            min-width: 2px;
-            min-height: 2px;
         }
-
         .letter-pixel.on {
             background-color: #0f8c10;
-            box-shadow: 0 0 8px #0f8c10;
+            box-shadow: 0 0 0.2vw #0f8c10;
         }
-
-        .countdown-container {
-            text-align: center;
-            width: 100%;
+        .big-numbers .pixel-letter {
+            grid-template-columns: repeat(5, 1vw);
+            grid-template-rows: repeat(7, 1vw);
+            gap: 0.18vw;
+            margin: 0 0.35vw; /* aumentato per più spazio tra numeri grandi */
+        }
+        .big-numbers .letter-pixel {
+            width: 1vw;
+            height: 1vw;
+        }        .big-numbers .letter-pixel.on {
+            background-color: #0f8c10;
+            box-shadow: 0 0 0.3vw #0f8c10;
+        }
+        .colon-small .pixel-letter {
+            grid-template-columns: repeat(5, 0.4vw);
+            grid-template-rows: repeat(7, 0.4vw);
+            gap: 0.08vw;
+            margin: 0 0.1vw;
+        }
+        .colon-small .letter-pixel {
+            width: 0.4vw;
+            height: 0.4vw;
+        }
+        .colon-small .letter-pixel.on {
+            background-color: #0f8c10;
+            box-shadow: 0 0 0.2vw #0f8c10;
+        }
+        .small-text .pixel-letter {
+            grid-template-columns: repeat(5, 0.3vw);
+            grid-template-rows: repeat(7, 0.3vw);
+            gap: 0.07vw;
+            margin: 0 0.02vw;
+        }
+        .small-text .letter-pixel {
+            width: 0.3vw;
+            height: 0.3vw;
+        }
+        .small-text .letter-pixel.on {
+            background-color: #0f8c10;
+            box-shadow: 0 0 0.1vw #0f8c10;
         }        .time-display {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 1.5vw;
-            margin: 1vh 0;
-            flex-wrap: nowrap;
+            gap: 0.5vh;
+            margin: 0.5vh 0;
             width: 100%;
-            max-width: 95vw;
+            max-width: 100vw;
         }
-
+        .countdown-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 1vw;
+            width: 100%;
+        }
         .time-unit {
             display: flex;
             flex-direction: column;
             align-items: center;
-        }        .colon {
-            font-size: 6vh;
-            line-height: 0.8;
-            margin: 0 0.5vw;
-            color: #0f8c10;
-            text-shadow: 0 0 1vh #0f8c10;
-        }.first-section-display {
+            gap: 0.3vh;
+        }
+        .colon-unit {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1vh;
+            justify-content: flex-start;
+            padding-top: 1.5vh;
         }
-
-        .mancano-row {
-            display: flex;
-            align-items: flex-end;
-            gap: 1.5vw;
-            flex-wrap: wrap;
-            justify-content: center;
-        }        .number-with-label {
+        .colon-spacer {
+            height: 4vh;
+        }.colon {
+            font-size: 2vw;
+            line-height: 0.8;
+            margin: 0 0.2vw;
+            color: #0f8c10;
+            text-shadow: 0 0 0.5vw #0f8c10;
+        }
+        .first-section-display {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 0.5vh;
         }
-
-        .numbers-row {
+        .mancano-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 1.2vw; /* aumentato per più spazio tra blocchi */
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .number-with-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2vh;
+        }        .numbers-row {
             display: flex;
             align-items: center;
-            gap: 1.5vw;
+            justify-content: center;
+            gap: 1.5vw; /* aumentato per più spazio tra i numeri countdown */
         }
-
         .labels-row {
             display: flex;
             align-items: center;
-            gap: 1.5vw;
+            justify-content: center;
+            gap: 1.2vw; /* aumentato per più spazio tra le etichette */
+        }        .dash-spacer {
+            width: 2.4vw; /* Larghezza che corrisponde ai due punti colon-small */
         }
-
-        .dash-spacer {
-            width: 4vw;
-        }        /* Classi per dimensioni diverse */
-        .big-numbers .pixel-letter {
-            grid-template-columns: repeat(8, 0.6vw);
-            grid-template-rows: repeat(12, 0.6vh);
-            gap: 1px;
-            margin: 0 0.2vw;
-        }
-
-        .big-numbers .letter-pixel {
-            width: 0.6vw;
-            height: 0.6vh;
-            min-width: 3px;
-            min-height: 2px;
-        }
-
-        .big-numbers .letter-pixel.on {
-            background-color: #0f8c10;
-            box-shadow: 0 0 0.6vh #0f8c10;
-        }
-
-        .small-text .pixel-letter {
-            grid-template-columns: repeat(8, 0.25vw);
-            grid-template-rows: repeat(12, 0.25vh);
-            gap: 0.5px;
-            margin: 0 0.05vw;
-        }
-
-        .small-text .letter-pixel {
-            width: 0.25vw;
-            height: 0.25vh;
-            min-width: 2px;
-            min-height: 1px;
-        }
-
-        .small-text .letter-pixel.on {
-            background-color: #0f8c10;
-            box-shadow: 0 0 0.3vh #0f8c10;
-        }
-
         @keyframes pulse {
-            0%, 100% { 
-                opacity: 1;
-            }
-            50% { 
-                opacity: 0.8;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
-
-        .pixel-text {
-            animation: pulse 2s infinite;
-        }        @media (max-width: 1200px) {
+        .pixel-text { animation: pulse 2s infinite; }        @media (max-width: 900px) {
+            .main-container { width: 98vw; height: 98vh; }
             .big-numbers .pixel-letter {
-                grid-template-columns: repeat(8, 0.5vw);
-                grid-template-rows: repeat(12, 0.5vh);
-            }
-            .big-numbers .letter-pixel {
-                width: 0.5vw;
-                height: 0.5vh;
-                min-width: 2px;
-                min-height: 2px;
-            }
-            .colon {
-                font-size: 5vh;
-                margin: 0 0.3vw;
-            }
-            .time-display {
-                gap: 1.2vw;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .main-container {
-                padding: 1vh;
-            }
-            .pixel-letter {
-                grid-template-columns: repeat(8, 0.4vw);
-                grid-template-rows: repeat(12, 0.4vh);
-            }
-            .letter-pixel {
-                width: 0.4vw;
-                height: 0.4vh;
-                min-width: 2px;
-                min-height: 2px;
-            }
-            .big-numbers .pixel-letter {
-                grid-template-columns: repeat(8, 0.45vw);
-                grid-template-rows: repeat(12, 0.45vh);
-                margin: 0 0.1vw;
-            }
-            .big-numbers .letter-pixel {
-                width: 0.45vw;
-                height: 0.45vh;
-                min-width: 2px;
-                min-height: 2px;
-            }
-            .small-text .pixel-letter {
-                grid-template-columns: repeat(8, 0.2vw);
-                grid-template-rows: repeat(12, 0.2vh);
-                margin: 0 0.02vw;
-            }
-            .small-text .letter-pixel {
-                width: 0.2vw;
-                height: 0.2vh;
-                min-width: 1px;
-                min-height: 1px;
-            }
-            .mancano-row {
-                gap: 0.8vw;
-            }
-            .time-display {
-                gap: 1vw;
-            }
-            .colon {
-                font-size: 4vh;
-                margin: 0 0.3vw;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .big-numbers .pixel-letter {
-                grid-template-columns: repeat(8, 0.4vw);
-                grid-template-rows: repeat(12, 0.4vh);
+                grid-template-columns: repeat(5, 0.7vw);
+                grid-template-rows: repeat(7, 0.7vw);
+                gap: 0.12vw;
                 margin: 0 0.05vw;
             }
             .big-numbers .letter-pixel {
+                width: 0.7vw;
+                height: 0.7vw;
+            }
+            .countdown-container { gap: 0.7vw; }
+            .colon-unit { padding-top: 1vh; }
+            .colon-spacer { height: 3vh; }
+        }
+        @media (max-width: 600px) {
+            .main-container { width: 100vw; height: 100vh; }
+            .pixel-letter {
+                grid-template-columns: repeat(5, 0.3vw);
+                grid-template-rows: repeat(7, 0.3vw);
+                gap: 0.05vw;
+                margin: 0 0.01vw;
+            }
+            .letter-pixel {
+                width: 0.3vw;
+                height: 0.3vw;
+            }
+            .big-numbers .pixel-letter {
+                grid-template-columns: repeat(5, 0.4vw);
+                grid-template-rows: repeat(7, 0.4vw);
+                gap: 0.05vw;
+                margin: 0 0.01vw;
+            }
+            .big-numbers .letter-pixel {
                 width: 0.4vw;
-                height: 0.4vh;
-                min-width: 2px;
-                min-height: 2px;
+                height: 0.4vw;
             }
-            .time-display {
-                gap: 0.8vw;
-                flex-wrap: wrap;
+            .small-text .pixel-letter {
+                grid-template-columns: repeat(5, 0.15vw);
+                grid-template-rows: repeat(7, 0.15vw);
+                gap: 0.02vw;
+                margin: 0 0.005vw;
             }
-            .colon {
-                font-size: 3vh;
-                margin: 0 0.2vw;
+            .small-text .letter-pixel {
+                width: 0.15vw;
+                height: 0.15vw;
             }
-            .mancano-row {
-                gap: 0.5vw;
+            .colon-small .pixel-letter {
+                grid-template-columns: repeat(5, 0.2vw);
+                grid-template-rows: repeat(7, 0.2vw);
+                gap: 0.03vw;
+                margin: 0 0.05vw;
             }
+            .colon-small .letter-pixel {
+                width: 0.2vw;
+                height: 0.2vw;
+            }
+            .countdown-container { gap: 0.5vw; }
+            .colon-unit { padding-top: 0.5vh; }
+            .colon-spacer { height: 2vh; }
         }
     </style>
 </head>
@@ -329,37 +285,41 @@
             </div>        </div>
 
         <!-- Linea divisoria -->
-        <div class="divider-line"></div>
-
-        <!-- SEZIONE 2: Countdown con numeri grandi -->
+        <div class="divider-line"></div>        <!-- SEZIONE 2: Countdown con numeri grandi -->
         <div class="section">
             <div class="time-display">
-                <div class="time-unit">
-                    <div class="pixel-text big-numbers" id="days"></div>
-                    <div class="pixel-text small-text" id="days-label"></div>
+                <div class="countdown-container">
+                    <div class="time-unit">
+                        <div class="pixel-text big-numbers" id="days"></div>
+                        <div class="pixel-text small-text" id="days-label"></div>
+                    </div>
+                    <div class="colon-unit">
+                        <div class="pixel-text colon-small" id="colon1"></div>
+                        <div class="colon-spacer"></div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="pixel-text big-numbers" id="hours"></div>
+                        <div class="pixel-text small-text" id="hours-label"></div>
+                    </div>
+                    <div class="colon-unit">
+                        <div class="pixel-text colon-small" id="colon2"></div>
+                        <div class="colon-spacer"></div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="pixel-text big-numbers" id="minutes"></div>
+                        <div class="pixel-text small-text" id="minutes-label"></div>
+                    </div>
+                    <div class="colon-unit">
+                        <div class="pixel-text colon-small" id="colon3"></div>
+                        <div class="colon-spacer"></div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="pixel-text big-numbers" id="seconds"></div>
+                        <div class="pixel-text small-text" id="seconds-label"></div>
+                    </div>
                 </div>
-                
-                <div class="colon">:</div>
-                
-                <div class="time-unit">
-                    <div class="pixel-text big-numbers" id="hours"></div>
-                    <div class="pixel-text small-text" id="hours-label"></div>
-                </div>
-                
-                <div class="colon">:</div>
-                
-                <div class="time-unit">
-                    <div class="pixel-text big-numbers" id="minutes"></div>
-                    <div class="pixel-text small-text" id="minutes-label"></div>
-                </div>
-                
-                <div class="colon">:</div>
-                
-                <div class="time-unit">
-                    <div class="pixel-text big-numbers" id="seconds"></div>
-                    <div class="pixel-text small-text" id="seconds-label"></div>
-                </div>
-            </div>        </div>
+            </div>
+        </div>
 
         <!-- Linea divisoria -->
         <div class="divider-line"></div>
@@ -371,483 +331,315 @@
     </div>
 
     <script>
-        // Pattern per le lettere pixellate (8x12 grid)
+        // Pattern 5x7 per lettere e numeri, ispirati all'immagine
         const letterPatterns = {
-            'M': [
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,0,0,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,1,1,0,1,1],
-                [1,1,0,1,1,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1]
-            ],
             'A': [
-                [0,0,1,1,1,1,0,0],
-                [0,1,1,1,1,1,1,0],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1]
-            ],
-            'N': [
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,0,0,0,1,1],
-                [1,1,1,1,0,0,1,1],
-                [1,1,1,1,1,0,1,1],
-                [1,1,0,1,1,1,1,1],
-                [1,1,0,0,1,1,1,1],
-                [1,1,0,0,0,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1]
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,1,1,1,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1]
             ],
             'C': [
-                [0,0,1,1,1,1,1,0],
-                [0,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,1,1],
-                [0,1,1,1,1,1,1,1],
-                [0,0,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            'O': [
-                [0,0,1,1,1,1,0,0],
-                [0,1,1,1,1,1,1,0],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,1,1,1,1,0,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            ':': [
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,1,1,1,1,0,0],
-                [0,0,1,1,1,1,0,0],
-                [0,0,1,1,1,1,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,1,1,1,1,0,0],
-                [0,0,1,1,1,1,0,0],
-                [0,0,1,1,1,1,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            ' ': [
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            '-': [
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            'S': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0],
-                [1,1,1,1,1,1,0,0],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,1,1,1],
-                [0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            'E': [
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,1,1,1,1,0,0],
-                [1,1,1,1,1,1,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0]
-            ],
-            'I': [
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0]
-            ],
-            'T': [
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            'P': [
-                [1,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            '?': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,1,1,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0]
+                [0,1,1,1,1],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [0,1,1,1,1]
             ],
             'D': [
-                [1,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
+                [1,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,1,1,1,0]
+            ],
+            'E': [
+                [1,1,1,1,1],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,1,1,1,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,1,1,1,1]
             ],
             'F': [
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,1,1,1,1,0,0],
-                [1,1,1,1,1,1,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            'R': [
-                [1,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,0,0],
-                [1,1,0,1,1,0,0,0],
-                [1,1,0,0,1,1,0,0],
-                [1,1,0,0,0,1,1,0],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [0,0,0,0,0,0,0,0]
-            ],
-            'Z': [
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,1,1,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,1,1,0,0,0,0],
-                [0,1,1,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0]
-            ],
-            'L': [
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0]
+                [1,1,1,1,1],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,1,1,1,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0]
             ],
             'G': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
+                [0,1,1,1,1],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,1,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,1]
+            ],
+            'I': [
+                [1,1,1,1,1],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [1,1,1,1,1]
+            ],
+            'L': [
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,1,1,1,1]
+            ],
+            'M': [
+                [1,0,0,0,1],
+                [1,1,0,1,1],
+                [1,0,1,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1]
+            ],
+            'N': [
+                [1,0,0,0,1],
+                [1,1,0,0,1],
+                [1,0,1,0,1],
+                [1,0,0,1,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1]
+            ],
+            'O': [
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,0]
+            ],
+            'P': [
+                [1,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,1,1,1,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0]
+            ],
+            'R': [
+                [1,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,1,1,1,0],
+                [1,0,1,0,0],
+                [1,0,0,1,0],
+                [1,0,0,0,1]
+            ],
+            'S': [
+                [0,1,1,1,1],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [0,1,1,1,0],
+                [0,0,0,0,1],
+                [0,0,0,0,1],
+                [1,1,1,1,0]
+            ],
+            'T': [
+                [1,1,1,1,1],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0]
             ],
             'U': [
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,0]
             ],
             'V': [
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [0,1,1,0,0,1,1,0],
-                [0,1,1,0,0,1,1,0],
-                [0,0,1,1,1,1,0,0],
-                [0,0,1,1,1,1,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,0,0,0,0,0]
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,0,1,0],
+                [0,1,0,1,0],
+                [0,0,1,0,0]
             ],
+            'Z': [
+                [1,1,1,1,1],
+                [0,0,0,0,1],
+                [0,0,0,1,0],
+                [0,0,1,0,0],
+                [0,1,0,0,0],
+                [1,0,0,0,0],
+                [1,1,1,1,1]
+            ],
+            ' ': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0]
+            ],
+            '-': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [1,1,1,1,1],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0]
+            ],            ':': [
+                [0,0,0,0,0],
+                [0,0,1,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,1,0,0],
+                [0,0,0,0,0]
+            ],            '?': [
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [0,0,0,1,0],
+                [0,0,1,0,0],
+                [0,0,0,0,0],
+                [0,0,1,0,0],
+                [0,0,0,0,0]
+            ],
+            // Numeri
             '0': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,1,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,0]
             ],
             '1': [
-                [0,0,0,1,1,0,0,0],
-                [0,0,1,1,1,0,0,0],
-                [0,1,1,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0]
+                [0,0,1,0,0],
+                [0,1,1,0,0],
+                [1,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [1,1,1,1,1]
             ],
             '2': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,1,1,1],
-                [0,0,0,0,1,1,1,0],
-                [0,0,0,1,1,1,0,0],
-                [0,0,1,1,1,0,0,0],
-                [0,1,1,1,0,0,0,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0]
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [0,0,0,0,1],
+                [0,0,0,1,0],
+                [0,0,1,0,0],
+                [0,1,0,0,0],
+                [1,1,1,1,1]
             ],
             '3': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [0,0,0,0,0,0,1,1],
-                [0,0,1,1,1,1,1,0],
-                [0,0,1,1,1,1,1,0],
-                [0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
+                [1,1,1,1,0],
+                [0,0,0,0,1],
+                [0,0,1,1,0],
+                [0,0,0,0,1],
+                [0,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,0]
             ],
             '4': [
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,1,1,1,0],
-                [0,0,0,1,1,1,1,0],
-                [0,0,1,1,0,1,1,0],
-                [0,1,1,0,0,1,1,0],
-                [1,1,0,0,0,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,0,0,0,0]
+                [0,0,0,1,0],
+                [0,0,1,1,0],
+                [0,1,0,1,0],
+                [1,0,0,1,0],
+                [1,1,1,1,1],
+                [0,0,0,1,0],
+                [0,0,0,1,0]
             ],
             '5': [
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
+                [1,1,1,1,1],
+                [1,0,0,0,0],
+                [1,1,1,1,0],
+                [0,0,0,0,1],
+                [0,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,0]
             ],
             '6': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0],
-                [1,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,0],
+                [1,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,0]
             ],
             '7': [
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,1,1,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,1,1,0,0,0,0],
-                [0,1,1,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0]
+                [1,1,1,1,1],
+                [0,0,0,0,1],
+                [0,0,0,1,0],
+                [0,0,1,0,0],
+                [0,1,0,0,0],
+                [0,1,0,0,0],
+                [0,1,0,0,0]
             ],
             '8': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,1,1,1,1,1,1,0],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,0]
             ],
             '9': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,1],
+                [0,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,0]
             ]
         };
-
-        // Funzione per creare testo pixelato
+        // Funzione per creare testo pixelato (5x7)
         function createPixelText(text, container) {
             container.innerHTML = '';
-            
             for (let i = 0; i < text.length; i++) {
                 const char = text[i].toUpperCase();
-                const pattern = letterPatterns[char];
-                
-                if (pattern) {
-                    const letterDiv = document.createElement('div');
-                    letterDiv.className = 'pixel-letter';
-                    
-                    for (let row = 0; row < 12; row++) {
-                        for (let col = 0; col < 8; col++) {
-                            const pixel = document.createElement('div');
-                            pixel.className = 'letter-pixel';
-                            if (pattern[row][col] === 1) {
-                                pixel.classList.add('on');
-                            }
-                            letterDiv.appendChild(pixel);
+                const pattern = letterPatterns[char] || letterPatterns[' '];
+                const letterDiv = document.createElement('div');
+                letterDiv.className = 'pixel-letter';
+                for (let row = 0; row < 7; row++) {
+                    for (let col = 0; col < 5; col++) {
+                        const pixel = document.createElement('div');
+                        pixel.className = 'letter-pixel';
+                        if (pattern[row][col] === 1) {
+                            pixel.classList.add('on');
                         }
+                        letterDiv.appendChild(pixel);
                     }
-                    
-                    container.appendChild(letterDiv);
                 }
+                container.appendChild(letterDiv);
             }
         }
 
@@ -894,28 +686,32 @@
         }
 
         // Funzione principale per aggiornare tutto
-        function updateDisplay() {
-            // Prima sezione: Mancano X ANNI - Y MESI
+        function updateDisplay() {            // Prima sezione: Mancano X ANNI - Y MESI
             const { years, months } = calculateYearsMonths();
             
-            createPixelText('Mancano:', document.getElementById('mancano-text'));
+            createPixelText('MANCANO:', document.getElementById('mancano-text'));
             createPixelText(years.toString(), document.getElementById('years'));
             createPixelText('ANNI', document.getElementById('anni-label'));
             createPixelText('-', document.getElementById('dash'));
             createPixelText(months.toString(), document.getElementById('months'));
             createPixelText('MESI', document.getElementById('mesi-label'));
-            
-            // Seconda sezione: Countdown
+              // Seconda sezione: Countdown
             const { days, hours, minutes, seconds } = updateCountdown();
             
             createPixelText(days.toString().padStart(3, '0'), document.getElementById('days'));
             createPixelText('GIORNI', document.getElementById('days-label'));
             
+            createPixelText(':', document.getElementById('colon1'));
+            
             createPixelText(hours.toString().padStart(2, '0'), document.getElementById('hours'));
             createPixelText('ORE', document.getElementById('hours-label'));
             
+            createPixelText(':', document.getElementById('colon2'));
+            
             createPixelText(minutes.toString().padStart(2, '0'), document.getElementById('minutes'));
             createPixelText('MINUTI', document.getElementById('minutes-label'));
+            
+            createPixelText(':', document.getElementById('colon3'));
             
             createPixelText(seconds.toString().padStart(2, '0'), document.getElementById('seconds'));
             createPixelText('SECONDI', document.getElementById('seconds-label'));
