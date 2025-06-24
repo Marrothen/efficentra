@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Pixellato</title>
     <style>
-        @import url('data:font/woff2;base64,d09GMgABAAAAACQwAA0AAAAAMwwAAACPIAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAAgUgCkACBDgFJgIKgWALIBAAATYCJAMgBCAFhAOHWgdSBZaAAAAAA');        body {
+        body {
             margin: 0;
             padding: 20px;
             background-color: #000;
@@ -38,12 +38,6 @@
             align-items: center;
         }
 
-        .section-title {
-            font-size: 32px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
         .pixel-text {
             display: flex;
             justify-content: center;
@@ -72,23 +66,9 @@
             box-shadow: 0 0 8px #0f8c10;
         }
 
-        .pixel-font {
-            font-family: monospace;
-            font-weight: bold;
-            text-rendering: optimizeSpeed;
-            -webkit-font-smoothing: none;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
         .countdown-container {
             text-align: center;
             width: 100%;
-        }
-
-        .header-text {
-            font-size: 24px;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
         }
 
         .time-display {
@@ -103,40 +83,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }        .time-number {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-            position: relative;
-            min-width: 200px;
-            height: 280px;
-        }        .pixel-digit {
-            display: grid;
-            grid-template-columns: repeat(8, 16px);
-            grid-template-rows: repeat(12, 16px);
-            gap: 2px;
-            margin: 0 12px;
         }
 
-        .pixel {
-            width: 16px;
-            height: 16px;
-            background-color: transparent;
-            transition: all 0.1s;
-            border-radius: 2px;
-        }
-
-        .pixel.on {
-            background-color: #0f8c10;
-            box-shadow: 0 0 16px #0f8c10;
-        }
-
-        .time-label {
-            font-size: 20px;
-            letter-spacing: 3px;
-            font-weight: bold;
-        }        .colon {
+        .colon {
             font-size: 120px;
             line-height: 0.8;
             margin: 0 10px;
@@ -144,132 +93,41 @@
             text-shadow: 0 0 20px #0f8c10;
         }
 
-        .footer-text {
-            font-size: 24px;
-            margin-top: 40px;
-            letter-spacing: 2px;
-        }        .pixel-block {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: #0f8c10;
-            margin: 1px;
-        }
-
-        .glow {
-            box-shadow: 
-                0 0 5px #0f8c10,
-                0 0 10px #0f8c10,
-                0 0 15px #0f8c10,
-                0 0 20px #0f8c10;
-        }
-
-        @keyframes pulse {
-            0%, 100% { 
-                text-shadow: 0 0 20px #0f8c10;
-                opacity: 1;
-            }
-            50% { 
-                text-shadow: 0 0 30px #0f8c10, 0 0 40px #0f8c10;
-                opacity: 0.8;
-            }
-        }
-
-        .time-number {
-            animation: pulse 2s infinite;
-        }
-
-        /* Pixel art style numbers */
-        .pixel-number {
-            position: relative;
-            display: inline-block;
-            width: 80px;
-            height: 120px;
-            margin: 0 5px;
-        }
-
-        .pixel-digit {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            font-size: 120px;
-            line-height: 120px;
-            text-align: center;
-            font-family: monospace;
-            font-weight: bold;            color: #0f8c10;
-            text-shadow: 2px 2px 0 #004400;
-        }        @media (max-width: 1200px) {
-            .pixel-digit {
-                grid-template-columns: repeat(8, 12px);
-                grid-template-rows: repeat(12, 12px);
-            }
-            .pixel {
-                width: 12px;
-                height: 12px;
-            }
-            .time-number {
-                min-width: 150px;
-                height: 200px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .pixel-digit {
-                grid-template-columns: repeat(8, 8px);
-                grid-template-rows: repeat(12, 8px);
-                gap: 1px;
-            }
-            .pixel {
-                width: 8px;
-                height: 8px;
-            }
-            .time-number {
-                min-width: 120px;
-                height: 140px;
-            }
-            .pixel-letter {
-                grid-template-columns: repeat(8, 4px);
-                grid-template-rows: repeat(12, 4px);
-            }
-            .letter-pixel {
-                width: 4px;
-                height: 4px;
-            }
-            .time-label {
-                font-size: 14px;
-            }
-            .section-title {
-                font-size: 24px;
-            }
-            .time-display {
-                gap: 15px;
-            }
-            .colon {
-                font-size: 60px;
-            }
-        }
-
         .first-section-display {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
-        }        .mancano-row {
+        }
+
+        .mancano-row {
             display: flex;
             align-items: flex-end;
             gap: 20px;
-        }
-
-        .number-with-label {
+        }        .number-with-label {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
-        }.dash .letter-pixel.on {
-            background-color: #0f8c10;
-            box-shadow: 0 0 8px #0f8c10;
         }
 
+        .numbers-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .labels-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .dash-spacer {
+            width: 60px; /* Stessa larghezza circa del trattino */
+        }
+
+        /* Classi per dimensioni diverse */
         .big-numbers .pixel-letter {
             grid-template-columns: repeat(8, 12px);
             grid-template-rows: repeat(12, 12px);
@@ -286,6 +144,83 @@
             background-color: #0f8c10;
             box-shadow: 0 0 12px #0f8c10;
         }
+
+        .small-text .pixel-letter {
+            grid-template-columns: repeat(8, 4px);
+            grid-template-rows: repeat(12, 4px);
+            gap: 1px;
+            margin: 0 1px;
+        }
+
+        .small-text .letter-pixel {
+            width: 4px;
+            height: 4px;
+        }
+
+        .small-text .letter-pixel.on {
+            background-color: #0f8c10;
+            box-shadow: 0 0 6px #0f8c10;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 1;
+            }
+            50% { 
+                opacity: 0.8;
+            }
+        }
+
+        .pixel-text {
+            animation: pulse 2s infinite;
+        }
+
+        @media (max-width: 1200px) {
+            .big-numbers .pixel-letter {
+                grid-template-columns: repeat(8, 10px);
+                grid-template-rows: repeat(12, 10px);
+            }
+            .big-numbers .letter-pixel {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pixel-letter {
+                grid-template-columns: repeat(8, 4px);
+                grid-template-rows: repeat(12, 4px);
+            }
+            .letter-pixel {
+                width: 4px;
+                height: 4px;
+            }
+            .big-numbers .pixel-letter {
+                grid-template-columns: repeat(8, 8px);
+                grid-template-rows: repeat(12, 8px);
+            }
+            .big-numbers .letter-pixel {
+                width: 8px;
+                height: 8px;
+            }
+            .small-text .pixel-letter {
+                grid-template-columns: repeat(8, 3px);
+                grid-template-rows: repeat(12, 3px);
+            }
+            .small-text .letter-pixel {
+                width: 3px;
+                height: 3px;
+            }
+            .mancano-row {
+                gap: 10px;
+            }
+            .time-display {
+                gap: 15px;
+            }
+            .colon {
+                font-size: 60px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -295,43 +230,48 @@
                 <div class="mancano-row">
                     <div class="pixel-text" id="mancano-text"></div>
                     <div class="number-with-label">
-                        <div class="pixel-text big-numbers" id="years"></div>
-                        <div class="pixel-text" id="anni-label"></div>
-                    </div>
-                    <div class="pixel-text" id="dash"></div>
-                    <div class="number-with-label">
-                        <div class="pixel-text big-numbers" id="months"></div>
-                        <div class="pixel-text" id="mesi-label"></div>
+                        <div class="numbers-row">
+                            <div class="pixel-text big-numbers" id="years"></div>
+                            <div class="pixel-text big-numbers" id="dash"></div>
+                            <div class="pixel-text big-numbers" id="months"></div>
+                        </div>
+                        <div class="labels-row">
+                            <div class="pixel-text small-text" id="anni-label"></div>
+                            <div class="dash-spacer"></div>
+                            <div class="pixel-text small-text" id="mesi-label"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div><!-- SEZIONE 2: Countdown con numeri grandi -->
+        </div>
+
+        <!-- SEZIONE 2: Countdown con numeri grandi -->
         <div class="section">
             <div class="time-display">
                 <div class="time-unit">
-                    <div class="pixel-text" id="days"></div>
-                    <div class="pixel-text" id="days-label"></div>
+                    <div class="pixel-text big-numbers" id="days"></div>
+                    <div class="pixel-text small-text" id="days-label"></div>
                 </div>
                 
                 <div class="colon">:</div>
                 
                 <div class="time-unit">
-                    <div class="pixel-text" id="hours"></div>
-                    <div class="pixel-text" id="hours-label"></div>
+                    <div class="pixel-text big-numbers" id="hours"></div>
+                    <div class="pixel-text small-text" id="hours-label"></div>
                 </div>
                 
                 <div class="colon">:</div>
                 
                 <div class="time-unit">
-                    <div class="pixel-text" id="minutes"></div>
-                    <div class="pixel-text" id="minutes-label"></div>
+                    <div class="pixel-text big-numbers" id="minutes"></div>
+                    <div class="pixel-text small-text" id="minutes-label"></div>
                 </div>
                 
                 <div class="colon">:</div>
                 
                 <div class="time-unit">
-                    <div class="pixel-text" id="seconds"></div>
-                    <div class="pixel-text" id="seconds-label"></div>
+                    <div class="pixel-text big-numbers" id="seconds"></div>
+                    <div class="pixel-text small-text" id="seconds-label"></div>
                 </div>
             </div>
         </div>
@@ -340,7 +280,9 @@
         <div class="section">
             <div class="pixel-text" id="tempo-text"></div>
         </div>
-    </div>    <script>
+    </div>
+
+    <script>
         // Pattern per le lettere pixellate (8x12 grid)
         const letterPatterns = {
             'M': [
@@ -441,6 +383,20 @@
                 [0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0]
             ],
+            '-': [
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [1,1,1,1,1,1,1,1],
+                [1,1,1,1,1,1,1,1],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0]
+            ],
             'S': [
                 [0,1,1,1,1,1,1,0],
                 [1,1,1,1,1,1,1,1],
@@ -497,20 +453,6 @@
                 [0,0,0,1,1,0,0,0],
                 [0,0,0,0,0,0,0,0]
             ],
-            'M': [
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,0,0,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,1,1,0,1,1],
-                [1,1,0,1,1,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [0,0,0,0,0,0,0,0]
-            ],
             'P': [
                 [1,1,1,1,1,1,1,0],
                 [1,1,1,1,1,1,1,1],
@@ -529,9 +471,9 @@
                 [0,1,1,1,1,1,1,0],
                 [1,1,1,1,1,1,1,1],
                 [1,1,0,0,0,0,1,1],
+                [0,0,0,0,0,0,1,1],
                 [0,0,0,0,0,1,1,0],
                 [0,0,0,0,1,1,0,0],
-                [0,0,0,1,1,0,0,0],
                 [0,0,0,1,1,0,0,0],
                 [0,0,0,0,0,0,0,0],
                 [0,0,0,1,1,0,0,0],
@@ -754,13 +696,13 @@
                 [1,1,1,1,1,1,1,1],
                 [0,0,0,0,0,0,1,1],
                 [0,0,0,0,0,1,1,0],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,1,1,0,0],
                 [0,0,0,0,1,1,0,0],
                 [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
                 [0,0,1,1,0,0,0,0],
-                [0,0,1,1,0,0,0,0],
+                [0,1,1,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
+                [1,1,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0]
             ],
             '8': [
@@ -768,8 +710,8 @@
                 [1,1,1,1,1,1,1,1],
                 [1,1,0,0,0,0,1,1],
                 [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
+                [0,1,1,1,1,1,1,0],
+                [0,1,1,1,1,1,1,0],
                 [1,1,0,0,0,0,1,1],
                 [1,1,0,0,0,0,1,1],
                 [1,1,0,0,0,0,1,1],
@@ -790,317 +732,113 @@
                 [1,1,1,1,1,1,1,1],
                 [0,1,1,1,1,1,1,0],
                 [0,0,0,0,0,0,0,0]
-            ],
-            // ...existing letters...
-        };        // Pattern per i numeri pixellati (8x12 grid - stesso formato delle lettere)
-        const digitPatterns = {
-            '0': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
-            ],            '1': [
-                [0,0,0,1,1,0,0,0],
-                [0,0,1,1,1,0,0,0],
-                [0,1,1,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0]
-            ],            '2': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,1,1,1],
-                [0,0,0,0,1,1,1,0],
-                [0,0,0,1,1,1,0,0],
-                [0,0,1,1,1,0,0,0],
-                [0,1,1,1,0,0,0,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0]
-            ],
-            '3': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [0,0,0,0,0,0,1,1],
-                [0,0,1,1,1,1,1,0],
-                [0,0,1,1,1,1,1,0],
-                [0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            '4': [
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,1,1,1,0],
-                [0,0,0,1,1,1,1,0],
-                [0,0,1,1,0,1,1,0],
-                [0,1,1,0,0,1,1,0],
-                [1,1,0,0,0,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            '5': [
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,0,0],
-                [1,1,0,0,0,0,0,0],
-                [1,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            '6': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,0,0],
-                [1,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            '7': [
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,1,1],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,0,1,1,0],
-                [0,0,0,0,1,1,0,0],
-                [0,0,0,0,1,1,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,0,1,1,0,0,0],
-                [0,0,1,1,0,0,0,0],
-                [0,0,1,1,0,0,0,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            '8': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            '9': [
-                [0,1,1,1,1,1,1,0],
-                [1,1,1,1,1,1,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,1,1],
-                [1,1,0,0,0,0,1,1],
-                [1,1,1,1,1,1,1,1],
-                [0,1,1,1,1,1,1,0],
-                [0,0,0,0,0,0,0,0]
-            ],
-            // ...existing letters...
-        };        function createPixelLetter(letter) {
-            const letterDiv = document.createElement('div');
-            letterDiv.className = 'pixel-letter';
-            
-            const pattern = letterPatterns[letter.toUpperCase()] || letterPatterns[' '];
-            
-            for (let row = 0; row < 12; row++) {
-                for (let col = 0; col < 8; col++) {
-                    const pixel = document.createElement('div');
-                    pixel.className = pattern[row][col] ? 'letter-pixel on' : 'letter-pixel';
-                    letterDiv.appendChild(pixel);
-                }
-            }
-            
-            return letterDiv;
-        }
+            ]
+        };
 
-        function createPixelText(text, containerId) {
-            const container = document.getElementById(containerId);
+        // Funzione per creare testo pixelato
+        function createPixelText(text, container) {
             container.innerHTML = '';
             
             for (let i = 0; i < text.length; i++) {
-                container.appendChild(createPixelLetter(text[i]));
-            }
-        }        function createPixelDigit(digit, useForFirstSection = false) {
-            const digitDiv = document.createElement('div');
-            digitDiv.className = 'pixel-digit';
-            
-            // Per la prima sezione usa i pattern originali più leggibili dai digitPatterns
-            // Per la seconda sezione usa i letterPatterns
-            const pattern = useForFirstSection ? 
-                (digitPatterns[digit] || digitPatterns['0']) : 
-                (letterPatterns[digit] || letterPatterns['0']);
-            
-            for (let row = 0; row < 12; row++) {
-                for (let col = 0; col < 8; col++) {
-                    const pixel = document.createElement('div');
-                    pixel.className = pattern[row][col] ? 'pixel on' : 'pixel';
-                    digitDiv.appendChild(pixel);
+                const char = text[i].toUpperCase();
+                const pattern = letterPatterns[char];
+                
+                if (pattern) {
+                    const letterDiv = document.createElement('div');
+                    letterDiv.className = 'pixel-letter';
+                    
+                    for (let row = 0; row < 12; row++) {
+                        for (let col = 0; col < 8; col++) {
+                            const pixel = document.createElement('div');
+                            pixel.className = 'letter-pixel';
+                            if (pattern[row][col] === 1) {
+                                pixel.classList.add('on');
+                            }
+                            letterDiv.appendChild(pixel);
+                        }
+                    }
+                    
+                    container.appendChild(letterDiv);
                 }
             }
-            
-            return digitDiv;
-        }        function updatePixelNumber(containerId, value, useForFirstSection = false) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-            
-            const digits = String(value).padStart(2, '0');
-            for (let i = 0; i < digits.length; i++) {
-                container.appendChild(createPixelDigit(digits[i], useForFirstSection));
-            }
-        }// Data target del countdown
-        const targetDate = new Date('January 1, 2030 00:00:00').getTime();        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+        }
 
-            if (distance < 0) {
-                document.querySelector('.section').innerHTML = 
-                    '<div class="section-title">TEMPO SCADUTO!</div>';
-                return;
-            }            // SEZIONE 1: Calcolo anni e mesi mancanti (dinamico da oggi)
-            const nowDate = new Date();
-            const target = new Date(2030, 0, 1); // 1° gennaio 2030
+        // Funzione per calcolare la differenza in anni e mesi
+        function calculateYearsMonths() {
+            const now = new Date();
+            const target = new Date(2030, 0, 1); // 1 gennaio 2030
             
-            let years = target.getFullYear() - nowDate.getFullYear();
-            let months = target.getMonth() - nowDate.getMonth();
+            let years = target.getFullYear() - now.getFullYear();
+            let months = target.getMonth() - now.getMonth();
             
             if (months < 0) {
                 years--;
                 months += 12;
             }
             
-            // Se siamo oltre il giorno target nel mese corrente, sottrai un mese
-            if (nowDate.getDate() > target.getDate()) {
+            if (now.getDate() > target.getDate()) {
                 months--;
                 if (months < 0) {
                     years--;
                     months += 12;
                 }
-            }            // Layout della prima sezione come nell'immagine
-            createPixelText('MANCANO:', 'mancano-text');
-            createBigPixelText(String(years).padStart(2, '0'), 'years'); // Numeri grandi
-            createPixelText('-', 'dash'); // Trattino in pixel art
-            createBigPixelText(String(months).padStart(2, '0'), 'months'); // Numeri grandi
-            createPixelText('ANNI', 'anni-label');
-            createPixelText('MESI', 'mesi-label');
-
-            // SEZIONE 2: Calcolo countdown preciso per i numeri grandi
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);            // Aggiorna i numeri pixellati per il countdown (usando createPixelText)
-            createPixelText(String(days).padStart(2, '0'), 'days');
-            createPixelText(String(hours).padStart(2, '0'), 'hours');
-            createPixelText(String(minutes).padStart(2, '0'), 'minutes');
-            createPixelText(String(seconds).padStart(2, '0'), 'seconds');
-            
-            // Aggiorna etichette in pixel art per la seconda sezione
-            createPixelText('GIORNI', 'days-label');
-            createPixelText('ORE', 'hours-label');
-            createPixelText('MINUTI', 'minutes-label');
-            createPixelText('SECONDI', 'seconds-label');
-            
-            // SEZIONE 3: Testo esattamente come nell'immagine
-            createPixelText('SEI ANCORA IN TEMPO?', 'tempo-text');
-        }
-
-        // Aggiorna il countdown ogni secondo
-        updateCountdown();
-        setInterval(updateCountdown, 1000);        // Effetto di scintillio casuale dei pixel
-        function addGlitchEffect() {
-            const pixels = document.querySelectorAll('.pixel.on, .letter-pixel.on');
-            pixels.forEach(pixel => {
-                if (Math.random() < 0.03) {
-                    pixel.style.boxShadow = '0 0 25px #0f8c10, 0 0 40px #0f8c10';
-                    setTimeout(() => {
-                        if (pixel.classList.contains('pixel')) {
-                            pixel.style.boxShadow = '0 0 16px #0f8c10';
-                        } else {
-                            pixel.style.boxShadow = '0 0 8px #0f8c10';
-                        }
-                    }, 120);
-                }
-            });
-        }
-
-        setInterval(addGlitchEffect, 1000);
-
-        // Effetto particelle di sfondo
-        function createParticles() {
-            for (let i = 0; i < 25; i++) {
-                const particle = document.createElement('div');
-                particle.style.position = 'fixed';
-                particle.style.width = '3px';
-                particle.style.height = '3px';
-                particle.style.backgroundColor = '#0f8c10';
-                particle.style.opacity = Math.random() * 0.4;
-                particle.style.left = Math.random() * window.innerWidth + 'px';
-                particle.style.top = Math.random() * window.innerHeight + 'px';
-                particle.style.pointerEvents = 'none';
-                particle.style.zIndex = '-1';
-                particle.style.borderRadius = '50%';
-                document.body.appendChild(particle);
-
-                // Animazione particella
-                let opacity = parseFloat(particle.style.opacity);
-                const fadeInterval = setInterval(() => {
-                    opacity -= 0.008;
-                    particle.style.opacity = opacity;
-                    if (opacity <= 0) {
-                        clearInterval(fadeInterval);
-                        particle.remove();
-                    }
-                }, 100);
             }
-        }
-
-        setInterval(createParticles, 4000);
-
-        function createBigPixelText(text, containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-            container.classList.add('big-numbers');
             
-            for (let i = 0; i < text.length; i++) {
-                container.appendChild(createPixelLetter(text[i]));
-            }
+            return { years, months };
         }
+
+        // Funzione per il countdown
+        function updateCountdown() {
+            const now = new Date();
+            const target = new Date(2030, 0, 1, 0, 0, 0); // 1 gennaio 2030, 00:00:00
+            const diff = target - now;
+            
+            if (diff <= 0) {
+                return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            return { days, hours, minutes, seconds };
+        }
+
+        // Funzione principale per aggiornare tutto
+        function updateDisplay() {
+            // Prima sezione: Mancano X ANNI - Y MESI
+            const { years, months } = calculateYearsMonths();
+            
+            createPixelText('Mancano:', document.getElementById('mancano-text'));
+            createPixelText(years.toString(), document.getElementById('years'));
+            createPixelText('ANNI', document.getElementById('anni-label'));
+            createPixelText('-', document.getElementById('dash'));
+            createPixelText(months.toString(), document.getElementById('months'));
+            createPixelText('MESI', document.getElementById('mesi-label'));
+            
+            // Seconda sezione: Countdown
+            const { days, hours, minutes, seconds } = updateCountdown();
+            
+            createPixelText(days.toString().padStart(3, '0'), document.getElementById('days'));
+            createPixelText('GIORNI', document.getElementById('days-label'));
+            
+            createPixelText(hours.toString().padStart(2, '0'), document.getElementById('hours'));
+            createPixelText('ORE', document.getElementById('hours-label'));
+            
+            createPixelText(minutes.toString().padStart(2, '0'), document.getElementById('minutes'));
+            createPixelText('MINUTI', document.getElementById('minutes-label'));
+            
+            createPixelText(seconds.toString().padStart(2, '0'), document.getElementById('seconds'));
+            createPixelText('SECONDI', document.getElementById('seconds-label'));
+            
+            // Terza sezione: Sei ancora in tempo?
+            createPixelText('SEI ANCORA IN TEMPO?', document.getElementById('tempo-text'));
+        }
+
+        // Avvia il countdown
+        updateDisplay();
+        setInterval(updateDisplay, 1000);
     </script>
 </body>
 </html>
