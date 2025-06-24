@@ -146,16 +146,15 @@
             flex-direction: column;
             align-items: center;
             gap: 0.3vh;
-        }
-        .colon-unit {
+        }        .colon-unit {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding-top: 1.5vh;
+            justify-content: center;
+            height: 100%;
         }
         .colon-spacer {
-            height: 4vh;
+            height: 0;
         }.colon {
             font-size: 2vw;
             line-height: 0.8;
@@ -210,10 +209,9 @@
             .big-numbers .letter-pixel {
                 width: 0.7vw;
                 height: 0.7vw;
-            }
-            .countdown-container { gap: 0.7vw; }
-            .colon-unit { padding-top: 1vh; }
-            .colon-spacer { height: 3vh; }
+            }            .countdown-container { gap: 0.7vw; }
+            .colon-unit { justify-content: center; }
+            .colon-spacer { height: 0; }
         }
         @media (max-width: 600px) {
             .main-container { width: 100vw; height: 100vh; }
@@ -256,10 +254,9 @@
             .colon-small .letter-pixel {
                 width: 0.2vw;
                 height: 0.2vw;
-            }
-            .countdown-container { gap: 0.5vw; }
-            .colon-unit { padding-top: 0.5vh; }
-            .colon-spacer { height: 2vh; }
+            }            .countdown-container { gap: 0.5vw; }
+            .colon-unit { justify-content: center; }
+            .colon-spacer { height: 0; }
         }
     </style>
 </head>
@@ -665,13 +662,21 @@
             }
             
             return { years, months };
-        }
-
-        // Funzione per il countdown
+        }        // Funzione per il countdown
         function updateCountdown() {
             const now = new Date();
             const target = new Date(2030, 0, 1, 0, 0, 0); // 1 gennaio 2030, 00:00:00
-            const diff = target - now;
+            
+            // Prima calcolo anni e mesi come nella prima sezione
+            const { years, months } = calculateYearsMonths();
+            
+            // Creo una data intermedia: oggi + anni e mesi calcolati
+            const intermediateDate = new Date(now);
+            intermediateDate.setFullYear(intermediateDate.getFullYear() + years);
+            intermediateDate.setMonth(intermediateDate.getMonth() + months);
+            
+            // Ora calcolo la differenza rimanente (giorni, ore, minuti, secondi)
+            const diff = target - intermediateDate;
             
             if (diff <= 0) {
                 return { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -694,11 +699,10 @@
             createPixelText('ANNI', document.getElementById('anni-label'));
             createPixelText('-', document.getElementById('dash'));
             createPixelText(months.toString(), document.getElementById('months'));
-            createPixelText('MESI', document.getElementById('mesi-label'));
-              // Seconda sezione: Countdown
+            createPixelText('MESI', document.getElementById('mesi-label'));            // Seconda sezione: Countdown
             const { days, hours, minutes, seconds } = updateCountdown();
             
-            createPixelText(days.toString().padStart(3, '0'), document.getElementById('days'));
+            createPixelText(days.toString().padStart(2, '0'), document.getElementById('days'));
             createPixelText('GIORNI', document.getElementById('days-label'));
             
             createPixelText(':', document.getElementById('colon1'));
