@@ -21,6 +21,9 @@
             width: 100vw;
             overflow: hidden;
         }
+        .mt-2{
+            margin-top: 2rem;
+        }
         .main-container {
             width: 90vw;
             height: 90vh;
@@ -150,8 +153,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100%;
+            justify-content: flex-start;
+            height: auto;
+            transform: translateY(20%);
+            gap: 15.44vh;
         }
         .colon-spacer {
             height: 0;
@@ -288,31 +293,28 @@
                 <div class="countdown-container">
                     <div class="time-unit">
                         <div class="pixel-text big-numbers" id="days"></div>
-                        <div class="pixel-text small-text" id="days-label"></div>
-                    </div>
-                    <div class="colon-unit">
-                        <div class="pixel-text colon-small" id="colon1"></div>
-                        <div class="colon-spacer"></div>
+                        <div class="pixel-text small-text mt-2" id="days-label"></div>
+                    </div>                    <div class="colon-unit">
+                        <div class="pixel-text colon-small" id="colon1-top"></div>
+                        <div class="pixel-text colon-small" id="colon1-bottom"></div>
                     </div>
                     <div class="time-unit">
                         <div class="pixel-text big-numbers" id="hours"></div>
-                        <div class="pixel-text small-text" id="hours-label"></div>
-                    </div>
-                    <div class="colon-unit">
-                        <div class="pixel-text colon-small" id="colon2"></div>
-                        <div class="colon-spacer"></div>
+                        <div class="pixel-text small-text mt-2" id="hours-label"></div>
+                    </div>                    <div class="colon-unit">
+                        <div class="pixel-text colon-small" id="colon2-top"></div>
+                        <div class="pixel-text colon-small" id="colon2-bottom"></div>
                     </div>
                     <div class="time-unit">
                         <div class="pixel-text big-numbers" id="minutes"></div>
-                        <div class="pixel-text small-text" id="minutes-label"></div>
-                    </div>
-                    <div class="colon-unit">
-                        <div class="pixel-text colon-small" id="colon3"></div>
-                        <div class="colon-spacer"></div>
+                        <div class="pixel-text small-text mt-2" id="minutes-label"></div>
+                    </div>                    <div class="colon-unit">
+                        <div class="pixel-text colon-small" id="colon3-top"></div>
+                        <div class="pixel-text colon-small" id="colon3-bottom"></div>
                     </div>
                     <div class="time-unit">
                         <div class="pixel-text big-numbers" id="seconds"></div>
-                        <div class="pixel-text small-text" id="seconds-label"></div>
+                        <div class="pixel-text small-text mt-2" id="seconds-label"></div>
                     </div>
                 </div>
             </div>
@@ -510,14 +512,13 @@
                 [0,0,0,0,0],
                 [0,0,0,0,0]
             ],            ':': [
+                [0,1,1,0,0],
+                [0,1,1,0,0],
                 [0,0,0,0,0],
-                [0,0,1,0,0],
                 [0,0,0,0,0],
                 [0,0,0,0,0],
-                [0,0,0,0,0],
-                [0,0,1,0,0],
-                [0,0,0,0,0]
-            ],            '?': [
+                [0,1,1,0,0],
+                [0,1,1,0,0]            ],'?': [
                 [0,1,1,1,0],
                 [1,0,0,0,1],
                 [0,0,0,1,0],
@@ -525,6 +526,142 @@
                 [0,0,0,0,0],
                 [0,0,1,0,0],
                 [0,0,0,0,0]
+            ],
+            // Lettere minuscole
+            'a': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,1,1,1,0],
+                [0,0,0,0,1],
+                [0,1,1,1,1],
+                [1,0,0,0,1],
+                [0,1,1,1,1]
+            ],
+            'c': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,1,1,1,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [0,1,1,1,0]
+            ],
+            'e': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [1,1,1,1,0],
+                [1,0,0,0,0],
+                [0,1,1,1,0]
+            ],
+            'i': [
+                [0,0,1,0,0],
+                [0,0,0,0,0],
+                [0,1,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,1,1,1,0]
+            ],
+            'n': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [1,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1]
+            ],
+            'o': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,0]
+            ],
+            'r': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [1,0,1,1,0],
+                [1,1,0,0,1],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0]
+            ],
+            's': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,1,1,1,0],
+                [1,0,0,0,0],
+                [0,1,1,1,0],
+                [0,0,0,0,1],
+                [1,1,1,1,0]
+            ],
+            't': [
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,1,1,1,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,1],
+                [0,0,0,1,0]
+            ],
+            'm': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [1,1,0,1,0],
+                [1,0,1,0,1],
+                [1,0,1,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1]
+            ],
+            'p': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [1,1,1,1,0],
+                [1,0,0,0,1],
+                [1,1,1,1,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0]
+            ],
+            'l': [
+                [0,1,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,0],
+                [0,0,1,0,1],
+                [0,0,0,1,0]
+            ],
+            'u': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,1]
+            ],
+            'd': [
+                [0,0,0,0,1],
+                [0,0,0,0,1],
+                [0,1,1,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,1]
+            ],
+            'g': [
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,1,1,1,1],
+                [1,0,0,0,1],
+                [0,1,1,1,1],
+                [0,0,0,0,1],
+                [0,1,1,1,0]
             ],
             // Numeri
             '0': [
@@ -616,14 +753,35 @@
                 [0,0,0,0,1],
                 [1,0,0,0,1],
                 [0,1,1,1,0]
-            ]
-        };
-        // Funzione per creare testo pixelato (5x7)
+            ]        };        // Funzione per creare testo pixelato (5x7)
         function createPixelText(text, container) {
             container.innerHTML = '';
             for (let i = 0; i < text.length; i++) {
                 const char = text[i].toUpperCase();
                 const pattern = letterPatterns[char] || letterPatterns[' '];
+                const letterDiv = document.createElement('div');
+                letterDiv.className = 'pixel-letter';
+                for (let row = 0; row < 7; row++) {
+                    for (let col = 0; col < 5; col++) {
+                        const pixel = document.createElement('div');
+                        pixel.className = 'letter-pixel';
+                        if (pattern[row][col] === 1) {
+                            pixel.classList.add('on');
+                        }
+                        letterDiv.appendChild(pixel);
+                    }
+                }
+                container.appendChild(letterDiv);
+            }
+        }        // Funzione per creare testo pixelato mantenendo PascalCase
+        function createPixelTextPascalCase(text, container) {
+            container.innerHTML = '';
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                
+                // Usa direttamente il carattere (maiuscolo o minuscolo) per il pattern
+                const pattern = letterPatterns[char] || letterPatterns[char.toUpperCase()] || letterPatterns[' '];
+                
                 const letterDiv = document.createElement('div');
                 letterDiv.className = 'pixel-letter';
                 for (let row = 0; row < 7; row++) {
@@ -694,7 +852,7 @@
         function updateDisplay() {            // Prima sezione: Mancano X ANNI - Y MESI
             const { years, months } = calculateYearsMonths();
             
-            createPixelText('MANCANO:', document.getElementById('mancano-text'));
+            createPixelTextPascalCase('Mancano:', document.getElementById('mancano-text'));
             createPixelText(years.toString(), document.getElementById('years'));
             createPixelText('ANNI', document.getElementById('anni-label'));
             createPixelText('-', document.getElementById('dash'));
@@ -703,25 +861,24 @@
             const { days, hours, minutes, seconds } = updateCountdown();
             
             createPixelText(days.toString().padStart(2, '0'), document.getElementById('days'));
-            createPixelText('GIORNI', document.getElementById('days-label'));
-            
-            createPixelText(':', document.getElementById('colon1'));
+            createPixelText('GIORNI', document.getElementById('days-label'));              createPixelText(':', document.getElementById('colon1-top'));
+            createPixelText('', document.getElementById('colon1-bottom'));
             
             createPixelText(hours.toString().padStart(2, '0'), document.getElementById('hours'));
             createPixelText('ORE', document.getElementById('hours-label'));
             
-            createPixelText(':', document.getElementById('colon2'));
+            createPixelText(':', document.getElementById('colon2-top'));
+            createPixelText('', document.getElementById('colon2-bottom'));
             
             createPixelText(minutes.toString().padStart(2, '0'), document.getElementById('minutes'));
             createPixelText('MINUTI', document.getElementById('minutes-label'));
             
-            createPixelText(':', document.getElementById('colon3'));
+            createPixelText(':', document.getElementById('colon3-top'));
+            createPixelText('', document.getElementById('colon3-bottom'));
             
             createPixelText(seconds.toString().padStart(2, '0'), document.getElementById('seconds'));
-            createPixelText('SECONDI', document.getElementById('seconds-label'));
-            
-            // Terza sezione: Sei ancora in tempo?
-            createPixelText('SEI ANCORA IN TEMPO?', document.getElementById('tempo-text'));
+            createPixelText('SECONDI', document.getElementById('seconds-label'));              // Terza sezione: Sei ancora in tempo?
+            createPixelTextPascalCase('Sei ancora in tempo?', document.getElementById('tempo-text'));
         }
 
         // Avvia il countdown
