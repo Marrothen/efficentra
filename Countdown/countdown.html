@@ -14,24 +14,38 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             width: 100vw;
-            overflow-x: auto;
-            overflow-y: auto;
-        }.main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            padding: 40px;
+            overflow: hidden;
+            box-sizing: border-box;
         }
 
-        .section {
-            width: 100%;
-            margin-bottom: 60px;
+        .main-container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 2vh;
+            box-sizing: border-box;
+            max-width: 100vw;
+        }        .section {
+            width: 100%;
+            margin-bottom: 2vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .divider-line {
+            width: 90%;
+            height: 2px;
+            background-color: #0f8c10;
+            box-shadow: 0 0 4px #0f8c10;
+            margin: 1vh 0;
         }
 
         .divider-line {
@@ -63,29 +77,27 @@
             height: 1px;
             background-color: #0f8c10;
             box-shadow: 0 0 5px #0f8c10;
-        }
-
-        .pixel-text {
+        }        .pixel-text {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 40px;
-        }
-
-        .pixel-letter {
+            gap: 0.5vw;
+            margin-bottom: 1vh;
+        }        .pixel-letter {
             display: grid;
-            grid-template-columns: repeat(8, 6px);
-            grid-template-rows: repeat(12, 6px);
-            gap: 1px;
-            margin: 0 2px;
+            grid-template-columns: repeat(8, 0.4vw);
+            grid-template-rows: repeat(12, 0.4vh);
+            gap: 0.5px;
+            margin: 0 0.2vw;
         }
 
         .letter-pixel {
-            width: 6px;
-            height: 6px;
+            width: 0.4vw;
+            height: 0.4vh;
             background-color: transparent;
+            min-width: 2px;
+            min-height: 2px;
         }
 
         .letter-pixel.on {
@@ -96,97 +108,98 @@
         .countdown-container {
             text-align: center;
             width: 100%;
-        }
-
-        .time-display {
+        }        .time-display {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
-            margin: 40px 0;
+            gap: 1.5vw;
+            margin: 1vh 0;
+            flex-wrap: nowrap;
+            width: 100%;
+            max-width: 95vw;
         }
 
         .time-unit {
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .colon {
-            font-size: 120px;
+        }        .colon {
+            font-size: 6vh;
             line-height: 0.8;
-            margin: 0 10px;
+            margin: 0 0.5vw;
             color: #0f8c10;
-            text-shadow: 0 0 20px #0f8c10;
-        }
-
-        .first-section-display {
+            text-shadow: 0 0 1vh #0f8c10;
+        }.first-section-display {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 1vh;
         }
 
         .mancano-row {
             display: flex;
             align-items: flex-end;
-            gap: 20px;
+            gap: 1.5vw;
+            flex-wrap: wrap;
+            justify-content: center;
         }        .number-with-label {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 0.5vh;
         }
 
         .numbers-row {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 1.5vw;
         }
 
         .labels-row {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 1.5vw;
         }
 
         .dash-spacer {
-            width: 60px; /* Stessa larghezza circa del trattino */
-        }
-
-        /* Classi per dimensioni diverse */
+            width: 4vw;
+        }        /* Classi per dimensioni diverse */
         .big-numbers .pixel-letter {
-            grid-template-columns: repeat(8, 12px);
-            grid-template-rows: repeat(12, 12px);
-            gap: 2px;
-            margin: 0 4px;
+            grid-template-columns: repeat(8, 0.6vw);
+            grid-template-rows: repeat(12, 0.6vh);
+            gap: 1px;
+            margin: 0 0.2vw;
         }
 
         .big-numbers .letter-pixel {
-            width: 12px;
-            height: 12px;
+            width: 0.6vw;
+            height: 0.6vh;
+            min-width: 3px;
+            min-height: 2px;
         }
 
         .big-numbers .letter-pixel.on {
             background-color: #0f8c10;
-            box-shadow: 0 0 12px #0f8c10;
+            box-shadow: 0 0 0.6vh #0f8c10;
         }
 
         .small-text .pixel-letter {
-            grid-template-columns: repeat(8, 4px);
-            grid-template-rows: repeat(12, 4px);
-            gap: 1px;
-            margin: 0 1px;
+            grid-template-columns: repeat(8, 0.25vw);
+            grid-template-rows: repeat(12, 0.25vh);
+            gap: 0.5px;
+            margin: 0 0.05vw;
         }
 
         .small-text .letter-pixel {
-            width: 4px;
-            height: 4px;
+            width: 0.25vw;
+            height: 0.25vh;
+            min-width: 2px;
+            min-height: 1px;
         }
 
         .small-text .letter-pixel.on {
             background-color: #0f8c10;
-            box-shadow: 0 0 6px #0f8c10;
+            box-shadow: 0 0 0.3vh #0f8c10;
         }
 
         @keyframes pulse {
@@ -200,53 +213,96 @@
 
         .pixel-text {
             animation: pulse 2s infinite;
-        }
-
-        @media (max-width: 1200px) {
+        }        @media (max-width: 1200px) {
             .big-numbers .pixel-letter {
-                grid-template-columns: repeat(8, 10px);
-                grid-template-rows: repeat(12, 10px);
+                grid-template-columns: repeat(8, 0.5vw);
+                grid-template-rows: repeat(12, 0.5vh);
             }
             .big-numbers .letter-pixel {
-                width: 10px;
-                height: 10px;
-            }
-        }        @media (max-width: 768px) {
-            .main-container {
-                padding: 20px;
-            }
-            .pixel-letter {
-                grid-template-columns: repeat(8, 4px);
-                grid-template-rows: repeat(12, 4px);
-            }
-            .letter-pixel {
-                width: 4px;
-                height: 4px;
-            }
-            .big-numbers .pixel-letter {
-                grid-template-columns: repeat(8, 8px);
-                grid-template-rows: repeat(12, 8px);
-            }
-            .big-numbers .letter-pixel {
-                width: 8px;
-                height: 8px;
-            }
-            .small-text .pixel-letter {
-                grid-template-columns: repeat(8, 3px);
-                grid-template-rows: repeat(12, 3px);
-            }
-            .small-text .letter-pixel {
-                width: 3px;
-                height: 3px;
-            }
-            .mancano-row {
-                gap: 10px;
-            }
-            .time-display {
-                gap: 15px;
+                width: 0.5vw;
+                height: 0.5vh;
+                min-width: 2px;
+                min-height: 2px;
             }
             .colon {
-                font-size: 60px;
+                font-size: 5vh;
+                margin: 0 0.3vw;
+            }
+            .time-display {
+                gap: 1.2vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 1vh;
+            }
+            .pixel-letter {
+                grid-template-columns: repeat(8, 0.4vw);
+                grid-template-rows: repeat(12, 0.4vh);
+            }
+            .letter-pixel {
+                width: 0.4vw;
+                height: 0.4vh;
+                min-width: 2px;
+                min-height: 2px;
+            }
+            .big-numbers .pixel-letter {
+                grid-template-columns: repeat(8, 0.45vw);
+                grid-template-rows: repeat(12, 0.45vh);
+                margin: 0 0.1vw;
+            }
+            .big-numbers .letter-pixel {
+                width: 0.45vw;
+                height: 0.45vh;
+                min-width: 2px;
+                min-height: 2px;
+            }
+            .small-text .pixel-letter {
+                grid-template-columns: repeat(8, 0.2vw);
+                grid-template-rows: repeat(12, 0.2vh);
+                margin: 0 0.02vw;
+            }
+            .small-text .letter-pixel {
+                width: 0.2vw;
+                height: 0.2vh;
+                min-width: 1px;
+                min-height: 1px;
+            }
+            .mancano-row {
+                gap: 0.8vw;
+            }
+            .time-display {
+                gap: 1vw;
+            }
+            .colon {
+                font-size: 4vh;
+                margin: 0 0.3vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .big-numbers .pixel-letter {
+                grid-template-columns: repeat(8, 0.4vw);
+                grid-template-rows: repeat(12, 0.4vh);
+                margin: 0 0.05vw;
+            }
+            .big-numbers .letter-pixel {
+                width: 0.4vw;
+                height: 0.4vh;
+                min-width: 2px;
+                min-height: 2px;
+            }
+            .time-display {
+                gap: 0.8vw;
+                flex-wrap: wrap;
+            }
+            .colon {
+                font-size: 3vh;
+                margin: 0 0.2vw;
+            }
+            .mancano-row {
+                gap: 0.5vw;
             }
         }
     </style>
