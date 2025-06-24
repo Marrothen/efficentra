@@ -265,9 +265,18 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
   */
-
   return (
     <>
+      {/* Logo per Facebook Open Graph - visibile ai crawler ma nascosto agli utenti */}
+      <div style={{ position: 'absolute', left: '-9999px', top: '-9999px', width: '1px', height: '1px' }}>
+        <Image 
+          src="/logo.JPG" 
+          alt="Efficentra - Il centro del risparmio per la tua casa" 
+          width={742} 
+          height={608}
+          priority
+        />
+      </div>
       <div className={`${selectedCard ? 'blur-sm' : ''} transition-all duration-300`}>
         <main className="flex flex-col">
           {/* Hero Section with Navigation */}
