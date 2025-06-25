@@ -1013,14 +1013,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Logo e info azienda */}            <div className="flex flex-col items-center md:items-start">
               <div className="flex items-center mb-3 sm:mb-4">                <Image 
-                  src="/CEO_Efficentra_logo-01.svg" 
+                  src="/CEO_Efficentra_logo-02.svg" 
                   alt="Efficentra" 
                   width={280} 
                   height={140} 
                   className="h-auto"
                 />
               </div>
-              <p className="text-gray-300 text-center md:text-left text-sm sm:text-base">Il centro del risparmio per la tua casa</p>
             </div>
             
             {/* Info di contatto */}
@@ -1102,6 +1101,7 @@ export default function Home() {
                 </div>
               </div>
               
+
               {/* Close Button */}              <button
                 onClick={closeDialog}
                 className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:bg-white hover:bg-opacity-20 rounded-full p-1 transition-colors duration-200 cursor-pointer"
