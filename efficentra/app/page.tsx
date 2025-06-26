@@ -280,13 +280,13 @@ export default function Home() {
       <div className={`${selectedCard ? 'blur-sm' : ''} transition-all duration-300`}>
         <main className="flex flex-col">
           {/* Hero Section with Navigation */}
-      <div className="bg-[#77a655] text-white flex flex-col justify-center items-center px-4 py-6 md:py-8 relative shadow-xl z-10">
+      <div className="bg-[#77a655] text-white flex flex-col justify-center items-center px-4 py-6 md:py-8 relative shadow-xl">
         <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-transparent to-black/5 pointer-events-none"></div>
         
         {/* Hamburger Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="absolute top-3 right-3 md:top-1/2 md:right-6 md:-translate-y-1/2 z-50 bg-white p-2 md:p-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          className="absolute top-3 right-3 md:top-1/2 md:right-6 md:-translate-y-1/2 z-[99998] bg-white p-2 md:p-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
           aria-label="Menu"
         >
           <div className="w-5 h-5 md:w-6 md:h-6 flex flex-col justify-center items-center space-y-1">
@@ -297,7 +297,7 @@ export default function Home() {
         </button>
 
         {/* Mobile Navigation Menu */}
-        <div className={`fixed top-0 right-0 sm:h-full w-72 sm:w-80 bg-white shadow-2xl transform transition-transform duration-300 z-50 ${isMenuOpen && !selectedCard ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className={`fixed top-0 right-0 sm:h-full w-72 sm:w-80 bg-white shadow-2xl transform transition-transform duration-300 z-[99999] ${isMenuOpen && !selectedCard ? 'translate-x-0' : 'translate-x-full'}`}>
           {/* Header del menu con pulsante chiusura */}
           <div className="flex justify-between items-center p-6 sm:p-8 border-b border-gray-200">
             <h2 className="text-lg sm:text-xl font-semibold text-[#21525f]">Menu</h2>
@@ -420,7 +420,7 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-4 md:px-8 pb-12 sm:pb-16 relative z-20">
+        <div className="container mx-auto px-4 md:px-8 pb-12 sm:pb-16 relative">
           {/* Prima riga - 3 card */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8">
             {/* Card 1 - Caldaie di ultima generazione */}
@@ -1071,7 +1071,7 @@ export default function Home() {
       {/* Dialog Modal - Fuori dal blur */}
       {selectedCard && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 dialog-overlay"
+          className="fixed inset-0 z-[1000] flex items-center justify-center p-2 sm:p-4 dialog-overlay"
           onClick={closeDialog}
           style={{ 
             left: 0, 
